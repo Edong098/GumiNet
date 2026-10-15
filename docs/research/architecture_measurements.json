@@ -1,0 +1,7067 @@
+{
+  "source": "codex_local_architecture_analysis",
+  "source_identity": {
+    "git_commit": "2b3bdf41adf4d37cc0645e090f42871d6500f977",
+    "git_dirty": true,
+    "package_source_sha256": "202ec281173b6e30134d89c338b3601428f77ba4d3916d90847e17ac26fbbef5"
+  },
+  "input_size": 128,
+  "num_classes": 3,
+  "model_initialization": "Seed 42 before EVERY model; untrained random weights",
+  "classification_evidence": false,
+  "registry": {
+    "v2_refined_d1_w075": {
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 0.75,
+        "depth": 1,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v2",
+        "expansion": 1.0,
+        "residual": false
+      },
+      "blocks": [
+        {
+          "name": "features.0",
+          "stage": null,
+          "repeat": null,
+          "type": "Sequential",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "output_shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "output_bytes": 196608,
+          "feature_mean": 0.22909629344940186,
+          "feature_variance": 0.11476898193359375,
+          "zero_fraction": 0.5005900263786316,
+          "input_gradient_norm": 3.4973904661228516e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.1",
+          "stage": 0,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "output_shape": [
+            1,
+            16,
+            32,
+            32
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 0.023059863597154617,
+          "feature_variance": 0.0012688572751358151,
+          "zero_fraction": 0.50762939453125,
+          "input_gradient_norm": 8.941488971458966e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.2",
+          "stage": 1,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            16,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.0027044236194342375,
+          "feature_variance": 2.1998501324560493e-05,
+          "zero_fraction": 0.5763753056526184,
+          "input_gradient_norm": 6.265786964831932e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.3",
+          "stage": 2,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            36,
+            16,
+            16
+          ],
+          "output_bytes": 36864,
+          "feature_mean": 0.000609049282502383,
+          "feature_variance": 7.750599024802796e-07,
+          "zero_fraction": 0.4695095419883728,
+          "input_gradient_norm": 3.727984449142241e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.4",
+          "stage": 3,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            36,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 0.00012191545829409733,
+          "feature_variance": 2.387931452574321e-08,
+          "zero_fraction": 0.3881022036075592,
+          "input_gradient_norm": 1.9522693037288263e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.5",
+          "stage": 4,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "output_bytes": 18432,
+          "feature_mean": 2.2190690287970938e-05,
+          "feature_variance": 1.03184261135425e-09,
+          "zero_fraction": 0.484375,
+          "input_gradient_norm": 0.00010748532804427668,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.6",
+          "stage": 5,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 3.6143046600045636e-06,
+          "feature_variance": 3.457920408345139e-11,
+          "zero_fraction": 0.5402018427848816,
+          "input_gradient_norm": 0.0005517658428288996,
+          "finite_gradient": true
+        }
+      ],
+      "active_residual_blocks": 0,
+      "active_residual_names": [],
+      "total_parameters": 17047,
+      "trainable_parameters": 17047,
+      "input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "feature_map_sizes": [
+        [
+          1,
+          12,
+          64,
+          64
+        ],
+        [
+          1,
+          16,
+          32,
+          32
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          36,
+          16,
+          16
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          72,
+          8,
+          8
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ]
+      ],
+      "estimated_activation_bytes": 489472,
+      "max_block_output_bytes": 196608,
+      "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+      "estimated_macs": 3709728,
+      "estimated_conv_linear_flops": 7419456,
+      "summed_leaf_output_bytes": 2089740
+    },
+    "v2_candidate_stage3": {
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 0.75,
+        "depth": 1,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v2",
+        "expansion": 1.0,
+        "residual": true,
+        "stage_depths": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        "residual_stages": [
+          3
+        ]
+      },
+      "blocks": [
+        {
+          "name": "features.0",
+          "stage": null,
+          "repeat": null,
+          "type": "Sequential",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "output_shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "output_bytes": 196608,
+          "feature_mean": 0.22909629344940186,
+          "feature_variance": 0.11476898193359375,
+          "zero_fraction": 0.5005900263786316,
+          "input_gradient_norm": 1.6475768305213023e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.1",
+          "stage": 0,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "output_shape": [
+            1,
+            16,
+            32,
+            32
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 0.023059863597154617,
+          "feature_variance": 0.0012688572751358151,
+          "zero_fraction": 0.50762939453125,
+          "input_gradient_norm": 4.270313880283538e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.2",
+          "stage": 1,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            16,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.0027044236194342375,
+          "feature_variance": 2.1998501324560493e-05,
+          "zero_fraction": 0.5763753056526184,
+          "input_gradient_norm": 2.941950185686437e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.3",
+          "stage": 2,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            36,
+            16,
+            16
+          ],
+          "output_bytes": 36864,
+          "feature_mean": 0.000609049282502383,
+          "feature_variance": 7.750599024802796e-07,
+          "zero_fraction": 0.4695095419883728,
+          "input_gradient_norm": 1.8025510826191748e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.4",
+          "stage": 3,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            36,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 0.00012191545829409733,
+          "feature_variance": 2.387931452574321e-08,
+          "zero_fraction": 0.3881022036075592,
+          "input_gradient_norm": 9.993676030717324e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.5",
+          "stage": 3,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 0.00013833120465278625,
+          "feature_variance": 2.5030070460729803e-08,
+          "zero_fraction": 0.216064453125,
+          "input_gradient_norm": 5.5028198403306305e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.6",
+          "stage": 4,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "output_bytes": 18432,
+          "feature_mean": 1.3050516827206593e-05,
+          "feature_variance": 4.0138736778772e-10,
+          "zero_fraction": 0.4958767294883728,
+          "input_gradient_norm": 6.145713268779218e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.7",
+          "stage": 5,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 2.106133933921228e-06,
+          "feature_variance": 1.066031984908733e-11,
+          "zero_fraction": 0.52587890625,
+          "input_gradient_norm": 0.0003410241042729467,
+          "finite_gradient": true
+        }
+      ],
+      "active_residual_blocks": 1,
+      "active_residual_names": [
+        "features.5"
+      ],
+      "total_parameters": 19975,
+      "trainable_parameters": 19975,
+      "input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "feature_map_sizes": [
+        [
+          1,
+          12,
+          64,
+          64
+        ],
+        [
+          1,
+          16,
+          32,
+          32
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          36,
+          16,
+          16
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          72,
+          8,
+          8
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ]
+      ],
+      "estimated_activation_bytes": 538624,
+      "max_block_output_bytes": 196608,
+      "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+      "estimated_macs": 4410144,
+      "estimated_conv_linear_flops": 8820288,
+      "summed_leaf_output_bytes": 2384652,
+      "residual_branch_probes": [
+        {
+          "active_residual": true,
+          "identity_output": true,
+          "gradient_min": 1.0,
+          "gradient_max": 1.0,
+          "finite": true,
+          "diagnostic": "Zero-branch identity derivative; not accuracy evidence"
+        }
+      ]
+    },
+    "guminet_v1": {
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 1.0,
+        "depth": 1,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v1",
+        "expansion": 1.0,
+        "residual": false
+      },
+      "blocks": [
+        {
+          "name": "features.0",
+          "stage": null,
+          "repeat": null,
+          "type": "Sequential",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "output_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_bytes": 262144,
+          "feature_mean": 0.22987373173236847,
+          "feature_variance": 0.11493982374668121,
+          "zero_fraction": 0.499420166015625,
+          "input_gradient_norm": 2.041658397899937e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.1",
+          "stage": 0,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.03444197401404381,
+          "feature_variance": 0.003034288762137294,
+          "zero_fraction": 0.5564778447151184,
+          "input_gradient_norm": 4.86954654377314e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.2",
+          "stage": 1,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 0.0062099844217300415,
+          "feature_variance": 7.649250619579107e-05,
+          "zero_fraction": 0.4674072265625,
+          "input_gradient_norm": 2.634140514601313e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.3",
+          "stage": 2,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 0.0006888802745379508,
+          "feature_variance": 1.1995222166660824e-06,
+          "zero_fraction": 0.5182291865348816,
+          "input_gradient_norm": 1.5328064364439342e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.4",
+          "stage": 3,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 0.0001786357897799462,
+          "feature_variance": 5.063469998844994e-08,
+          "zero_fraction": 0.417724609375,
+          "input_gradient_norm": 9.75447164819343e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.5",
+          "stage": 4,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 2.1620680854539387e-05,
+          "feature_variance": 1.2090928258601252e-09,
+          "zero_fraction": 0.5174153447151184,
+          "input_gradient_norm": 5.218442311161198e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.6",
+          "stage": 5,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 2.9067623472656123e-06,
+          "feature_variance": 1.7819443837163718e-11,
+          "zero_fraction": 0.49462890625,
+          "input_gradient_norm": 0.0003010205109603703,
+          "finite_gradient": true
+        }
+      ],
+      "active_residual_blocks": 0,
+      "active_residual_names": [],
+      "total_parameters": 28907,
+      "trainable_parameters": 28907,
+      "input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "feature_map_sizes": [
+        [
+          1,
+          16,
+          64,
+          64
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          64,
+          16,
+          16
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ],
+        [
+          1,
+          128,
+          8,
+          8
+        ]
+      ],
+      "estimated_activation_bytes": 663552,
+      "max_block_output_bytes": 262144,
+      "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+      "estimated_macs": 5953920,
+      "estimated_conv_linear_flops": 11907840,
+      "summed_leaf_output_bytes": 2851852
+    },
+    "guminet_nano": {
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 0.5,
+        "depth": 1,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v1",
+        "expansion": 1.0,
+        "residual": false
+      },
+      "blocks": [
+        {
+          "name": "features.0",
+          "stage": null,
+          "repeat": null,
+          "type": "Sequential",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "output_shape": [
+            1,
+            8,
+            64,
+            64
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 0.22563521564006805,
+          "feature_variance": 0.11135346442461014,
+          "zero_fraction": 0.500244140625,
+          "input_gradient_norm": 1.9477127466416277e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.1",
+          "stage": 0,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            8,
+            64,
+            64
+          ],
+          "output_shape": [
+            1,
+            12,
+            32,
+            32
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 0.023885859176516533,
+          "feature_variance": 0.002060722094029188,
+          "zero_fraction": 0.5894368290901184,
+          "input_gradient_norm": 4.857743718389429e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.2",
+          "stage": 1,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            12,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            16,
+            32,
+            32
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 0.003487812587991357,
+          "feature_variance": 2.8914770155097358e-05,
+          "zero_fraction": 0.5010986328125,
+          "input_gradient_norm": 3.277255018474534e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.3",
+          "stage": 2,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            16,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            24,
+            16,
+            16
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 0.0004808771191164851,
+          "feature_variance": 6.946841608623799e-07,
+          "zero_fraction": 0.521484375,
+          "input_gradient_norm": 2.026000174737419e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.4",
+          "stage": 3,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            32,
+            16,
+            16
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 5.99843988311477e-05,
+          "feature_variance": 1.008879735309165e-08,
+          "zero_fraction": 0.5504150390625,
+          "input_gradient_norm": 1.2535912901512347e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.5",
+          "stage": 4,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            48,
+            8,
+            8
+          ],
+          "output_bytes": 12288,
+          "feature_mean": 8.056466867856216e-06,
+          "feature_variance": 1.4008513793406507e-10,
+          "zero_fraction": 0.4778645932674408,
+          "input_gradient_norm": 8.737996540730819e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.6",
+          "stage": 5,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "output_bytes": 16384,
+          "feature_mean": 1.1211681112399674e-06,
+          "feature_variance": 2.408932428532573e-12,
+          "zero_fraction": 0.42236328125,
+          "input_gradient_norm": 0.0006313662161119282,
+          "finite_gradient": true
+        }
+      ],
+      "active_residual_blocks": 0,
+      "active_residual_names": [],
+      "total_parameters": 8407,
+      "trainable_parameters": 8407,
+      "input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "feature_map_sizes": [
+        [
+          1,
+          8,
+          64,
+          64
+        ],
+        [
+          1,
+          12,
+          32,
+          32
+        ],
+        [
+          1,
+          16,
+          32,
+          32
+        ],
+        [
+          1,
+          24,
+          16,
+          16
+        ],
+        [
+          1,
+          32,
+          16,
+          16
+        ],
+        [
+          1,
+          48,
+          8,
+          8
+        ],
+        [
+          1,
+          64,
+          8,
+          8
+        ]
+      ],
+      "estimated_activation_bytes": 331776,
+      "max_block_output_bytes": 131072,
+      "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+      "estimated_macs": 2092224,
+      "estimated_conv_linear_flops": 4184448,
+      "summed_leaf_output_bytes": 1425932
+    },
+    "guminet_tiny": {
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 1.0,
+        "depth": 1,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v1",
+        "expansion": 1.0,
+        "residual": false
+      },
+      "blocks": [
+        {
+          "name": "features.0",
+          "stage": null,
+          "repeat": null,
+          "type": "Sequential",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "output_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_bytes": 262144,
+          "feature_mean": 0.22987373173236847,
+          "feature_variance": 0.11493982374668121,
+          "zero_fraction": 0.499420166015625,
+          "input_gradient_norm": 2.041658397899937e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.1",
+          "stage": 0,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.03444197401404381,
+          "feature_variance": 0.003034288762137294,
+          "zero_fraction": 0.5564778447151184,
+          "input_gradient_norm": 4.86954654377314e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.2",
+          "stage": 1,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 0.0062099844217300415,
+          "feature_variance": 7.649250619579107e-05,
+          "zero_fraction": 0.4674072265625,
+          "input_gradient_norm": 2.634140514601313e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.3",
+          "stage": 2,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 0.0006888802745379508,
+          "feature_variance": 1.1995222166660824e-06,
+          "zero_fraction": 0.5182291865348816,
+          "input_gradient_norm": 1.5328064364439342e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.4",
+          "stage": 3,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 0.0001786357897799462,
+          "feature_variance": 5.063469998844994e-08,
+          "zero_fraction": 0.417724609375,
+          "input_gradient_norm": 9.75447164819343e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.5",
+          "stage": 4,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 2.1620680854539387e-05,
+          "feature_variance": 1.2090928258601252e-09,
+          "zero_fraction": 0.5174153447151184,
+          "input_gradient_norm": 5.218442311161198e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.6",
+          "stage": 5,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 2.9067623472656123e-06,
+          "feature_variance": 1.7819443837163718e-11,
+          "zero_fraction": 0.49462890625,
+          "input_gradient_norm": 0.0003010205109603703,
+          "finite_gradient": true
+        }
+      ],
+      "active_residual_blocks": 0,
+      "active_residual_names": [],
+      "total_parameters": 28907,
+      "trainable_parameters": 28907,
+      "input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "feature_map_sizes": [
+        [
+          1,
+          16,
+          64,
+          64
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          64,
+          16,
+          16
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ],
+        [
+          1,
+          128,
+          8,
+          8
+        ]
+      ],
+      "estimated_activation_bytes": 663552,
+      "max_block_output_bytes": 262144,
+      "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+      "estimated_macs": 5953920,
+      "estimated_conv_linear_flops": 11907840,
+      "summed_leaf_output_bytes": 2851852
+    },
+    "guminet_small": {
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 1.25,
+        "depth": 2,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v1",
+        "expansion": 1.0,
+        "residual": false
+      },
+      "blocks": [
+        {
+          "name": "features.0",
+          "stage": null,
+          "repeat": null,
+          "type": "Sequential",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "output_shape": [
+            1,
+            20,
+            64,
+            64
+          ],
+          "output_bytes": 327680,
+          "feature_mean": 0.2282017469406128,
+          "feature_variance": 0.11333063989877701,
+          "zero_fraction": 0.5010741949081421,
+          "input_gradient_norm": 6.48168313726466e-13,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.1",
+          "stage": 0,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            20,
+            64,
+            64
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 0.03640124946832657,
+          "feature_variance": 0.0030602682381868362,
+          "zero_fraction": 0.492279052734375,
+          "input_gradient_norm": 1.58454629625715e-12,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.2",
+          "stage": 0,
+          "repeat": 1,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 0.006492998450994492,
+          "feature_variance": 9.354241046821699e-05,
+          "zero_fraction": 0.49169921875,
+          "input_gradient_norm": 8.494359729493972e-12,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.3",
+          "stage": 1,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            40,
+            32,
+            32
+          ],
+          "output_bytes": 163840,
+          "feature_mean": 0.0016126349801197648,
+          "feature_variance": 5.248145043879049e-06,
+          "zero_fraction": 0.4627929627895355,
+          "input_gradient_norm": 5.0825545161448105e-11,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.4",
+          "stage": 1,
+          "repeat": 1,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            40,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            40,
+            32,
+            32
+          ],
+          "output_bytes": 163840,
+          "feature_mean": 0.00018083660688716918,
+          "feature_variance": 6.35067110010823e-08,
+          "zero_fraction": 0.4476562440395355,
+          "input_gradient_norm": 2.6436292044351717e-10,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.5",
+          "stage": 2,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            40,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            60,
+            16,
+            16
+          ],
+          "output_bytes": 61440,
+          "feature_mean": 4.349426308181137e-05,
+          "feature_variance": 3.0881008861172177e-09,
+          "zero_fraction": 0.4569661319255829,
+          "input_gradient_norm": 1.7865191548338544e-09,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.6",
+          "stage": 2,
+          "repeat": 1,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            60,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            60,
+            16,
+            16
+          ],
+          "output_bytes": 61440,
+          "feature_mean": 6.106655746407341e-06,
+          "feature_variance": 1.0320260618312815e-10,
+          "zero_fraction": 0.5459635257720947,
+          "input_gradient_norm": 9.3900691666704e-09,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.7",
+          "stage": 3,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            60,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            80,
+            16,
+            16
+          ],
+          "output_bytes": 81920,
+          "feature_mean": 9.406006142853585e-07,
+          "feature_variance": 1.6225782653242482e-12,
+          "zero_fraction": 0.46796876192092896,
+          "input_gradient_norm": 5.125502866576426e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.8",
+          "stage": 3,
+          "repeat": 1,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            80,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            80,
+            16,
+            16
+          ],
+          "output_bytes": 81920,
+          "feature_mean": 1.1920813847154932e-07,
+          "feature_variance": 3.130296992752066e-14,
+          "zero_fraction": 0.50341796875,
+          "input_gradient_norm": 3.509423152081581e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.9",
+          "stage": 4,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            80,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            120,
+            8,
+            8
+          ],
+          "output_bytes": 30720,
+          "feature_mean": 2.0919161514143525e-08,
+          "feature_variance": 1.0885404634831041e-15,
+          "zero_fraction": 0.5063802003860474,
+          "input_gradient_norm": 2.273554400744615e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.10",
+          "stage": 4,
+          "repeat": 1,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            120,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            120,
+            8,
+            8
+          ],
+          "output_bytes": 30720,
+          "feature_mean": 3.092249789560242e-09,
+          "feature_variance": 2.3925370383122547e-17,
+          "zero_fraction": 0.5389322638511658,
+          "input_gradient_norm": 1.4585640201403294e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.11",
+          "stage": 5,
+          "repeat": 0,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            120,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            160,
+            8,
+            8
+          ],
+          "output_bytes": 40960,
+          "feature_mean": 5.191863050590939e-10,
+          "feature_variance": 6.672838601107483e-19,
+          "zero_fraction": 0.5142577886581421,
+          "input_gradient_norm": 0.00010292764636687934,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.12",
+          "stage": 5,
+          "repeat": 1,
+          "type": "GumiBlockV1",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            160,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            160,
+            8,
+            8
+          ],
+          "output_bytes": 40960,
+          "feature_mean": 9.110160542613599e-11,
+          "feature_variance": 2.0863029856364556e-20,
+          "zero_fraction": 0.5440429449081421,
+          "input_gradient_norm": 0.0005508389440365136,
+          "finite_gradient": true
+        }
+      ],
+      "active_residual_blocks": 0,
+      "active_residual_names": [],
+      "total_parameters": 102859,
+      "trainable_parameters": 102859,
+      "input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "feature_map_sizes": [
+        [
+          1,
+          20,
+          64,
+          64
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          40,
+          32,
+          32
+        ],
+        [
+          1,
+          40,
+          32,
+          32
+        ],
+        [
+          1,
+          60,
+          16,
+          16
+        ],
+        [
+          1,
+          60,
+          16,
+          16
+        ],
+        [
+          1,
+          80,
+          16,
+          16
+        ],
+        [
+          1,
+          80,
+          16,
+          16
+        ],
+        [
+          1,
+          120,
+          8,
+          8
+        ],
+        [
+          1,
+          120,
+          8,
+          8
+        ],
+        [
+          1,
+          160,
+          8,
+          8
+        ],
+        [
+          1,
+          160,
+          8,
+          8
+        ]
+      ],
+      "estimated_activation_bytes": 1347584,
+      "max_block_output_bytes": 327680,
+      "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+      "estimated_macs": 17644000,
+      "estimated_conv_linear_flops": 35288000,
+      "summed_leaf_output_bytes": 6673676
+    },
+    "guminet_v2_plain": {
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 1.0,
+        "depth": 2,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v2",
+        "expansion": 1.0,
+        "residual": false
+      },
+      "blocks": [
+        {
+          "name": "features.0",
+          "stage": null,
+          "repeat": null,
+          "type": "Sequential",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "output_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_bytes": 262144,
+          "feature_mean": 0.22987373173236847,
+          "feature_variance": 0.11493982374668121,
+          "zero_fraction": 0.499420166015625,
+          "input_gradient_norm": 4.844231569697821e-13,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.1",
+          "stage": 0,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.03444197401404381,
+          "feature_variance": 0.003034288762137294,
+          "zero_fraction": 0.5564778447151184,
+          "input_gradient_norm": 1.1607752519599002e-12,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.2",
+          "stage": 0,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.0060390750877559185,
+          "feature_variance": 6.5665713918861e-05,
+          "zero_fraction": 0.4484049379825592,
+          "input_gradient_norm": 6.2305685784302955e-12,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.3",
+          "stage": 1,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 0.00047569425078108907,
+          "feature_variance": 5.694471383321797e-07,
+          "zero_fraction": 0.518646240234375,
+          "input_gradient_norm": 3.9311009308873324e-11,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.4",
+          "stage": 1,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 7.693404040765017e-05,
+          "feature_variance": 1.6493217458446452e-08,
+          "zero_fraction": 0.5487060546875,
+          "input_gradient_norm": 2.630986817298009e-10,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.5",
+          "stage": 2,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 1.814941606426146e-05,
+          "feature_variance": 6.527648976906164e-10,
+          "zero_fraction": 0.4658203125,
+          "input_gradient_norm": 1.400236482318462e-09,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.6",
+          "stage": 2,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 2.3871207304182462e-06,
+          "feature_variance": 1.3572090500069134e-11,
+          "zero_fraction": 0.50537109375,
+          "input_gradient_norm": 9.014863522338601e-09,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.7",
+          "stage": 3,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 4.591441893353476e-07,
+          "feature_variance": 5.473761634927632e-13,
+          "zero_fraction": 0.53704833984375,
+          "input_gradient_norm": 5.6579992246952315e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.8",
+          "stage": 3,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 7.147807679075413e-08,
+          "feature_variance": 1.3582923780413973e-14,
+          "zero_fraction": 0.552978515625,
+          "input_gradient_norm": 3.264150052473269e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.9",
+          "stage": 4,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 1.1806039701411919e-08,
+          "feature_variance": 3.390496599126817e-16,
+          "zero_fraction": 0.4918619692325592,
+          "input_gradient_norm": 1.9750066257984145e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.10",
+          "stage": 4,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 2.0823140989278954e-09,
+          "feature_variance": 9.663044506505664e-18,
+          "zero_fraction": 0.5061848759651184,
+          "input_gradient_norm": 1.2200591299915686e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.11",
+          "stage": 5,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 4.6352802152149764e-10,
+          "feature_variance": 4.948728989763074e-19,
+          "zero_fraction": 0.478515625,
+          "input_gradient_norm": 7.090532017173246e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.12",
+          "stage": 5,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 8.449101140950432e-11,
+          "feature_variance": 1.3707158231827937e-20,
+          "zero_fraction": 0.4339599609375,
+          "input_gradient_norm": 0.0004390751419123262,
+          "finite_gradient": true
+        }
+      ],
+      "active_residual_blocks": 0,
+      "active_residual_names": [],
+      "total_parameters": 67603,
+      "trainable_parameters": 67603,
+      "input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "feature_map_sizes": [
+        [
+          1,
+          16,
+          64,
+          64
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          64,
+          16,
+          16
+        ],
+        [
+          1,
+          64,
+          16,
+          16
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ],
+        [
+          1,
+          128,
+          8,
+          8
+        ],
+        [
+          1,
+          128,
+          8,
+          8
+        ]
+      ],
+      "estimated_activation_bytes": 1064960,
+      "max_block_output_bytes": 262144,
+      "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+      "estimated_macs": 11772288,
+      "estimated_conv_linear_flops": 23544576,
+      "summed_leaf_output_bytes": 5260300
+    },
+    "guminet_v2_residual": {
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 1.0,
+        "depth": 2,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v2",
+        "expansion": 1.0,
+        "residual": true
+      },
+      "blocks": [
+        {
+          "name": "features.0",
+          "stage": null,
+          "repeat": null,
+          "type": "Sequential",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "output_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_bytes": 262144,
+          "feature_mean": 0.22987373173236847,
+          "feature_variance": 0.11493982374668121,
+          "zero_fraction": 0.499420166015625,
+          "input_gradient_norm": 2.9977506699196965e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.1",
+          "stage": 0,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.03444197401404381,
+          "feature_variance": 0.003034288762137294,
+          "zero_fraction": 0.5564778447151184,
+          "input_gradient_norm": 7.188054951257072e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.2",
+          "stage": 0,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.03799550235271454,
+          "feature_variance": 0.0028294974472373724,
+          "zero_fraction": 0.2430012971162796,
+          "input_gradient_norm": 3.9823956399231975e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.3",
+          "stage": 1,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 0.004800169728696346,
+          "feature_variance": 5.2722702093888074e-05,
+          "zero_fraction": 0.482208251953125,
+          "input_gradient_norm": 4.5498313738789875e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.4",
+          "stage": 1,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 0.0051847947761416435,
+          "feature_variance": 5.1782288210233673e-05,
+          "zero_fraction": 0.287506103515625,
+          "input_gradient_norm": 2.475062956364127e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.5",
+          "stage": 2,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 0.0010928531410172582,
+          "feature_variance": 2.131404244209989e-06,
+          "zero_fraction": 0.44140625,
+          "input_gradient_norm": 2.842807134584291e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.6",
+          "stage": 2,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 0.0011626908089965582,
+          "feature_variance": 2.128845380866551e-06,
+          "zero_fraction": 0.2364908903837204,
+          "input_gradient_norm": 1.4047447621123865e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.7",
+          "stage": 3,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 0.00015434922534041107,
+          "feature_variance": 6.987301759409092e-08,
+          "zero_fraction": 0.5648193359375,
+          "input_gradient_norm": 1.5227314179355744e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.8",
+          "stage": 3,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 0.00016874459106475115,
+          "feature_variance": 6.938260810329666e-08,
+          "zero_fraction": 0.30877685546875,
+          "input_gradient_norm": 8.627880743006244e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.9",
+          "stage": 4,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 2.548238444433082e-05,
+          "feature_variance": 1.3689960276508373e-09,
+          "zero_fraction": 0.4938150942325592,
+          "input_gradient_norm": 9.37363802222535e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.10",
+          "stage": 4,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 2.805360418278724e-05,
+          "feature_variance": 1.316544095963934e-09,
+          "zero_fraction": 0.2669270932674408,
+          "input_gradient_norm": 0.0005036973161622882,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.11",
+          "stage": 5,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 3.662064273157739e-06,
+          "feature_variance": 2.9134184648116346e-11,
+          "zero_fraction": 0.49267578125,
+          "input_gradient_norm": 0.0005567381158471107,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.12",
+          "stage": 5,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 4.038482984469738e-06,
+          "feature_variance": 2.7258452439671288e-11,
+          "zero_fraction": 0.201904296875,
+          "input_gradient_norm": 0.003353523788973689,
+          "finite_gradient": true
+        }
+      ],
+      "active_residual_blocks": 6,
+      "active_residual_names": [
+        "features.2",
+        "features.4",
+        "features.6",
+        "features.8",
+        "features.10",
+        "features.12"
+      ],
+      "total_parameters": 67603,
+      "trainable_parameters": 67603,
+      "input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "feature_map_sizes": [
+        [
+          1,
+          16,
+          64,
+          64
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          64,
+          16,
+          16
+        ],
+        [
+          1,
+          64,
+          16,
+          16
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ],
+        [
+          1,
+          128,
+          8,
+          8
+        ],
+        [
+          1,
+          128,
+          8,
+          8
+        ]
+      ],
+      "estimated_activation_bytes": 1064960,
+      "max_block_output_bytes": 262144,
+      "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+      "estimated_macs": 11772288,
+      "estimated_conv_linear_flops": 23544576,
+      "summed_leaf_output_bytes": 5260300
+    },
+    "guminet_v2_low_expansion": {
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 1.0,
+        "depth": 2,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v2",
+        "expansion": 1.5,
+        "residual": false
+      },
+      "blocks": [
+        {
+          "name": "features.0",
+          "stage": null,
+          "repeat": null,
+          "type": "Sequential",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "output_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_bytes": 262144,
+          "feature_mean": 0.22987373173236847,
+          "feature_variance": 0.11493982374668121,
+          "zero_fraction": 0.499420166015625,
+          "input_gradient_norm": 8.925505456935008e-18,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.1",
+          "stage": 0,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.013366959057748318,
+          "feature_variance": 0.00039861351251602173,
+          "zero_fraction": 0.5104573369026184,
+          "input_gradient_norm": 2.1833013714947214e-17,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.2",
+          "stage": 0,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.0016467645764350891,
+          "feature_variance": 5.757836788689019e-06,
+          "zero_fraction": 0.5784505009651184,
+          "input_gradient_norm": 3.1763026131942937e-16,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.3",
+          "stage": 1,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 5.205381603445858e-05,
+          "feature_variance": 6.694851339972274e-09,
+          "zero_fraction": 0.50811767578125,
+          "input_gradient_norm": 5.413329120628873e-15,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.4",
+          "stage": 1,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 4.0144082049664576e-06,
+          "feature_variance": 3.2153075341101456e-11,
+          "zero_fraction": 0.43389892578125,
+          "input_gradient_norm": 8.616364051286865e-14,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.5",
+          "stage": 2,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 2.8713850497297244e-07,
+          "feature_variance": 2.0750210631779314e-13,
+          "zero_fraction": 0.5071614384651184,
+          "input_gradient_norm": 1.1719117429948023e-12,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.6",
+          "stage": 2,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 7.534023183097815e-09,
+          "feature_variance": 1.5094481815118295e-16,
+          "zero_fraction": 0.556640625,
+          "input_gradient_norm": 1.460151444199198e-11,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.7",
+          "stage": 3,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 6.517673067918395e-10,
+          "feature_variance": 1.1328707913911338e-18,
+          "zero_fraction": 0.5216064453125,
+          "input_gradient_norm": 2.551058808641926e-10,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.8",
+          "stage": 3,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 7.368469029378488e-11,
+          "feature_variance": 8.716308268233125e-21,
+          "zero_fraction": 0.43572998046875,
+          "input_gradient_norm": 4.021015520550009e-09,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.9",
+          "stage": 4,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 2.5368058348407274e-12,
+          "feature_variance": 1.7582463177146104e-23,
+          "zero_fraction": 0.541015625,
+          "input_gradient_norm": 5.257024682236988e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.10",
+          "stage": 4,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 1.7772003486904442e-13,
+          "feature_variance": 6.569351970685519e-26,
+          "zero_fraction": 0.4939778745174408,
+          "input_gradient_norm": 8.190922926587518e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.11",
+          "stage": 5,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 9.175145587953307e-15,
+          "feature_variance": 2.006009148509885e-28,
+          "zero_fraction": 0.516845703125,
+          "input_gradient_norm": 1.1931865628866944e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.12",
+          "stage": 5,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 5.236458794484163e-16,
+          "feature_variance": 6.328122433979399e-31,
+          "zero_fraction": 0.4984130859375,
+          "input_gradient_norm": 0.00019615872588474303,
+          "finite_gradient": true
+        }
+      ],
+      "active_residual_blocks": 0,
+      "active_residual_names": [],
+      "total_parameters": 175123,
+      "trainable_parameters": 175123,
+      "input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "feature_map_sizes": [
+        [
+          1,
+          16,
+          64,
+          64
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          64,
+          16,
+          16
+        ],
+        [
+          1,
+          64,
+          16,
+          16
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ],
+        [
+          1,
+          128,
+          8,
+          8
+        ],
+        [
+          1,
+          128,
+          8,
+          8
+        ]
+      ],
+      "estimated_activation_bytes": 1064960,
+      "max_block_output_bytes": 262144,
+      "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+      "estimated_macs": 27206016,
+      "estimated_conv_linear_flops": 54412032,
+      "summed_leaf_output_bytes": 8356876
+    },
+    "guminet_v2_low_expansion_residual": {
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 1.0,
+        "depth": 2,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v2",
+        "expansion": 1.5,
+        "residual": true
+      },
+      "blocks": [
+        {
+          "name": "features.0",
+          "stage": null,
+          "repeat": null,
+          "type": "Sequential",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            3,
+            128,
+            128
+          ],
+          "output_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_bytes": 262144,
+          "feature_mean": 0.22987373173236847,
+          "feature_variance": 0.11493982374668121,
+          "zero_fraction": 0.499420166015625,
+          "input_gradient_norm": 1.8735717144391373e-10,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.1",
+          "stage": 0,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            16,
+            64,
+            64
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.013366959057748318,
+          "feature_variance": 0.00039861351251602173,
+          "zero_fraction": 0.5104573369026184,
+          "input_gradient_norm": 4.526062580278989e-10,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.2",
+          "stage": 0,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_bytes": 98304,
+          "feature_mean": 0.014132616110146046,
+          "feature_variance": 0.0003606001555453986,
+          "zero_fraction": 0.2719319760799408,
+          "input_gradient_norm": 6.4209224603928305e-09,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.3",
+          "stage": 1,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            24,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 0.001303903409279883,
+          "feature_variance": 3.0459173103736248e-06,
+          "zero_fraction": 0.386932373046875,
+          "input_gradient_norm": 7.2185586397210955e-09,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.4",
+          "stage": 1,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_bytes": 131072,
+          "feature_mean": 0.0013501045759767294,
+          "feature_variance": 3.0939565931475954e-06,
+          "zero_fraction": 0.205322265625,
+          "input_gradient_norm": 7.796237611046308e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.5",
+          "stage": 2,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            32,
+            32,
+            32
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 0.00013038062024861574,
+          "feature_variance": 3.781935120628077e-08,
+          "zero_fraction": 0.469482421875,
+          "input_gradient_norm": 8.281223529138515e-08,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.6",
+          "stage": 2,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_bytes": 49152,
+          "feature_mean": 0.00013061058416496962,
+          "feature_variance": 3.7609083847200964e-08,
+          "zero_fraction": 0.3251953125,
+          "input_gradient_norm": 9.454559517507732e-07,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.7",
+          "stage": 3,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            48,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 4.843129318032879e-06,
+          "feature_variance": 6.142900771388682e-11,
+          "zero_fraction": 0.52532958984375,
+          "input_gradient_norm": 1.0240220262858202e-06,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.8",
+          "stage": 3,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_bytes": 65536,
+          "feature_mean": 5.322088327375241e-06,
+          "feature_variance": 5.894636861958347e-11,
+          "zero_fraction": 0.22064208984375,
+          "input_gradient_norm": 1.4073529200686608e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.9",
+          "stage": 4,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 1.9764472369843133e-07,
+          "feature_variance": 9.798918268596676e-14,
+          "zero_fraction": 0.5411784052848816,
+          "input_gradient_norm": 1.5193745639408007e-05,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.10",
+          "stage": 4,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_bytes": 24576,
+          "feature_mean": 2.0415582469013316e-07,
+          "feature_variance": 9.652319904723122e-14,
+          "zero_fraction": 0.2908528745174408,
+          "input_gradient_norm": 0.00017766578821465373,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.11",
+          "stage": 5,
+          "repeat": 0,
+          "type": "GumiBlockV2",
+          "active_residual": false,
+          "input_shape": [
+            1,
+            96,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 1.3835654399940722e-08,
+          "feature_variance": 4.4304783578097266e-16,
+          "zero_fraction": 0.5003662109375,
+          "input_gradient_norm": 0.00019829603843390942,
+          "finite_gradient": true
+        },
+        {
+          "name": "features.12",
+          "stage": 5,
+          "repeat": 1,
+          "type": "GumiBlockV2",
+          "active_residual": true,
+          "input_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_shape": [
+            1,
+            128,
+            8,
+            8
+          ],
+          "output_bytes": 32768,
+          "feature_mean": 1.4146271709591929e-08,
+          "feature_variance": 4.345597715560965e-16,
+          "zero_fraction": 0.2830810546875,
+          "input_gradient_norm": 0.002732554916292429,
+          "finite_gradient": true
+        }
+      ],
+      "active_residual_blocks": 6,
+      "active_residual_names": [
+        "features.2",
+        "features.4",
+        "features.6",
+        "features.8",
+        "features.10",
+        "features.12"
+      ],
+      "total_parameters": 175123,
+      "trainable_parameters": 175123,
+      "input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "output_shape": [
+        1,
+        3
+      ],
+      "feature_map_sizes": [
+        [
+          1,
+          16,
+          64,
+          64
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          24,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          32,
+          32,
+          32
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          48,
+          16,
+          16
+        ],
+        [
+          1,
+          64,
+          16,
+          16
+        ],
+        [
+          1,
+          64,
+          16,
+          16
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ],
+        [
+          1,
+          96,
+          8,
+          8
+        ],
+        [
+          1,
+          128,
+          8,
+          8
+        ],
+        [
+          1,
+          128,
+          8,
+          8
+        ]
+      ],
+      "estimated_activation_bytes": 1064960,
+      "max_block_output_bytes": 262144,
+      "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+      "estimated_macs": 27206016,
+      "estimated_conv_linear_flops": 54412032,
+      "summed_leaf_output_bytes": 8356876
+    }
+  },
+  "ablations": {
+    "v1": {
+      "baseline": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_bytes": 262144,
+            "feature_mean": 0.22987373173236847,
+            "feature_variance": 0.11493982374668121,
+            "zero_fraction": 0.499420166015625
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.03444197401404381,
+            "feature_variance": 0.003034288762137294,
+            "zero_fraction": 0.5564778447151184
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              32,
+              32,
+              32
+            ],
+            "output_bytes": 131072,
+            "feature_mean": 0.0062099844217300415,
+            "feature_variance": 7.649250619579107e-05,
+            "zero_fraction": 0.4674072265625
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              32,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.0006888802745379508,
+            "feature_variance": 1.1995222166660824e-06,
+            "zero_fraction": 0.5182291865348816
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              64,
+              16,
+              16
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.0001786357897799462,
+            "feature_variance": 5.063469998844994e-08,
+            "zero_fraction": 0.417724609375
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              64,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 2.1620680854539387e-05,
+            "feature_variance": 1.2090928258601252e-09,
+            "zero_fraction": 0.5174153447151184
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              128,
+              8,
+              8
+            ],
+            "output_bytes": 32768,
+            "feature_mean": 2.9067623472656123e-06,
+            "feature_variance": 1.7819443837163718e-11,
+            "zero_fraction": 0.49462890625
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 28907,
+        "trainable_parameters": 28907,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            16,
+            64,
+            64
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            32,
+            32,
+            32
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            64,
+            16,
+            16
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ],
+          [
+            1,
+            128,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 663552,
+        "max_block_output_bytes": 262144,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 5953920,
+        "estimated_conv_linear_flops": 11907840,
+        "summed_leaf_output_bytes": 2851852
+      },
+      "kernel5": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_bytes": 262144,
+            "feature_mean": 0.22987373173236847,
+            "feature_variance": 0.11493982374668121,
+            "zero_fraction": 0.499420166015625
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.036406002938747406,
+            "feature_variance": 0.0029184629675000906,
+            "zero_fraction": 0.4977213442325592
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              32,
+              32,
+              32
+            ],
+            "output_bytes": 131072,
+            "feature_mean": 0.004337737336754799,
+            "feature_variance": 4.642274507205002e-05,
+            "zero_fraction": 0.517669677734375
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              32,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.0005459418171085417,
+            "feature_variance": 6.161126293591224e-07,
+            "zero_fraction": 0.4706217348575592
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              64,
+              16,
+              16
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 9.707309072837234e-05,
+            "feature_variance": 2.139117327715212e-08,
+            "zero_fraction": 0.50921630859375
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              64,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 1.3355198461795226e-05,
+            "feature_variance": 5.074021758311176e-10,
+            "zero_fraction": 0.57275390625
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              128,
+              8,
+              8
+            ],
+            "output_bytes": 32768,
+            "feature_mean": 1.927862513184664e-06,
+            "feature_variance": 8.098553078150772e-12,
+            "zero_fraction": 0.495361328125
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 33387,
+        "trainable_parameters": 33387,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            16,
+            64,
+            64
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            32,
+            32,
+            32
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            64,
+            16,
+            16
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ],
+          [
+            1,
+            128,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 663552,
+        "max_block_output_bytes": 262144,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 7100800,
+        "estimated_conv_linear_flops": 14201600,
+        "summed_leaf_output_bytes": 2851852
+      },
+      "late_downsampling": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_bytes": 262144,
+            "feature_mean": 0.22987373173236847,
+            "feature_variance": 0.11493982374668121,
+            "zero_fraction": 0.499420166015625
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              24,
+              64,
+              64
+            ],
+            "output_bytes": 393216,
+            "feature_mean": 0.03454853594303131,
+            "feature_variance": 0.0030389034654945135,
+            "zero_fraction": 0.5579426884651184
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              32,
+              64,
+              64
+            ],
+            "output_bytes": 524288,
+            "feature_mean": 0.005987602286040783,
+            "feature_variance": 7.13444605935365e-05,
+            "zero_fraction": 0.4649810791015625
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              32,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              48,
+              32,
+              32
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.0006667599664069712,
+            "feature_variance": 1.1384842082406976e-06,
+            "zero_fraction": 0.5218098759651184
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              64,
+              16,
+              16
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.0001785595522960648,
+            "feature_variance": 5.0590191591481926e-08,
+            "zero_fraction": 0.42095947265625
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              64,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 2.1505975382751785e-05,
+            "feature_variance": 1.1572595104425432e-09,
+            "zero_fraction": 0.517578125
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              128,
+              8,
+              8
+            ],
+            "output_bytes": 32768,
+            "feature_mean": 2.7830647013615817e-06,
+            "feature_variance": 1.676574504227979e-11,
+            "zero_fraction": 0.494140625
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 28907,
+        "trainable_parameters": 28907,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            16,
+            64,
+            64
+          ],
+          [
+            1,
+            24,
+            64,
+            64
+          ],
+          [
+            1,
+            32,
+            64,
+            64
+          ],
+          [
+            1,
+            48,
+            32,
+            32
+          ],
+          [
+            1,
+            64,
+            16,
+            16
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ],
+          [
+            1,
+            128,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 1499136,
+        "max_block_output_bytes": 524288,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 11999616,
+        "estimated_conv_linear_flops": 23999232,
+        "summed_leaf_output_bytes": 7128076
+      },
+      "balanced_channels": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_bytes": 262144,
+            "feature_mean": 0.22987373173236847,
+            "feature_variance": 0.11493982374668121,
+            "zero_fraction": 0.499420166015625
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.03444197401404381,
+            "feature_variance": 0.003034288762137294,
+            "zero_fraction": 0.5564778447151184
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              40,
+              32,
+              32
+            ],
+            "output_bytes": 163840,
+            "feature_mean": 0.006319907493889332,
+            "feature_variance": 8.17129184724763e-05,
+            "zero_fraction": 0.47358399629592896
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              40,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              56,
+              16,
+              16
+            ],
+            "output_bytes": 57344,
+            "feature_mean": 0.0008178952266462147,
+            "feature_variance": 1.3677372407983057e-06,
+            "zero_fraction": 0.4696567952632904
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              56,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              72,
+              16,
+              16
+            ],
+            "output_bytes": 73728,
+            "feature_mean": 0.00013278571714181453,
+            "feature_variance": 3.5135926168550213e-08,
+            "zero_fraction": 0.4761284589767456
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              72,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              88,
+              8,
+              8
+            ],
+            "output_bytes": 22528,
+            "feature_mean": 1.788721237971913e-05,
+            "feature_variance": 9.532667988310095e-10,
+            "zero_fraction": 0.5619673132896423
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              88,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              112,
+              8,
+              8
+            ],
+            "output_bytes": 28672,
+            "feature_mean": 2.4198927803809056e-06,
+            "feature_variance": 1.1183638216893943e-11,
+            "zero_fraction": 0.4450334906578064
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 28651,
+        "trainable_parameters": 28651,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            16,
+            64,
+            64
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            40,
+            32,
+            32
+          ],
+          [
+            1,
+            56,
+            16,
+            16
+          ],
+          [
+            1,
+            72,
+            16,
+            16
+          ],
+          [
+            1,
+            88,
+            8,
+            8
+          ],
+          [
+            1,
+            112,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 706560,
+        "max_block_output_bytes": 262144,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 6469968,
+        "estimated_conv_linear_flops": 12939936,
+        "summed_leaf_output_bytes": 3029900
+      },
+      "late_channels": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_bytes": 262144,
+            "feature_mean": 0.22987373173236847,
+            "feature_variance": 0.11493982374668121,
+            "zero_fraction": 0.499420166015625
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              20,
+              32,
+              32
+            ],
+            "output_bytes": 81920,
+            "feature_mean": 0.036338306963443756,
+            "feature_variance": 0.0031685272697359324,
+            "zero_fraction": 0.538281261920929
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              20,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              28,
+              32,
+              32
+            ],
+            "output_bytes": 114688,
+            "feature_mean": 0.008209466002881527,
+            "feature_variance": 0.0001431682612746954,
+            "zero_fraction": 0.5014997124671936
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              28,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              40,
+              16,
+              16
+            ],
+            "output_bytes": 40960,
+            "feature_mean": 0.0014029685407876968,
+            "feature_variance": 3.8325952118611895e-06,
+            "zero_fraction": 0.44550782442092896
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              40,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              56,
+              16,
+              16
+            ],
+            "output_bytes": 57344,
+            "feature_mean": 0.0001362058537779376,
+            "feature_variance": 4.682651066900689e-08,
+            "zero_fraction": 0.5285295844078064
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              56,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 2.428158768452704e-05,
+            "feature_variance": 1.398818283426806e-09,
+            "zero_fraction": 0.5022786259651184
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              144,
+              8,
+              8
+            ],
+            "output_bytes": 36864,
+            "feature_mean": 3.5458097045193426e-06,
+            "feature_variance": 2.7125744359035586e-11,
+            "zero_fraction": 0.4912109375
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 27923,
+        "trainable_parameters": 27923,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            16,
+            64,
+            64
+          ],
+          [
+            1,
+            20,
+            32,
+            32
+          ],
+          [
+            1,
+            28,
+            32,
+            32
+          ],
+          [
+            1,
+            40,
+            16,
+            16
+          ],
+          [
+            1,
+            56,
+            16,
+            16
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ],
+          [
+            1,
+            144,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 618496,
+        "max_block_output_bytes": 262144,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 5335984,
+        "estimated_conv_linear_flops": 10671968,
+        "summed_leaf_output_bytes": 2624652
+      },
+      "leaky_relu": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_bytes": 262144,
+            "feature_mean": 0.206972137093544,
+            "feature_variance": 0.1266019344329834,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.028390534222126007,
+            "feature_variance": 0.0034958755131810904,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              32,
+              32,
+              32
+            ],
+            "output_bytes": 131072,
+            "feature_mean": 0.005990411154925823,
+            "feature_variance": 9.122738993028179e-05,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              32,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.000685777748003602,
+            "feature_variance": 1.611955326552561e-06,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              64,
+              16,
+              16
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.000179902053787373,
+            "feature_variance": 6.627406179404716e-08,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              64,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 2.1107336579007097e-05,
+            "feature_variance": 1.6020019755202952e-09,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              128,
+              8,
+              8
+            ],
+            "output_bytes": 32768,
+            "feature_mean": 3.1382262477563927e-06,
+            "feature_variance": 2.7523035933674223e-11,
+            "zero_fraction": 0.0
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 28907,
+        "trainable_parameters": 28907,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            16,
+            64,
+            64
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            32,
+            32,
+            32
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            64,
+            16,
+            16
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ],
+          [
+            1,
+            128,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 663552,
+        "max_block_output_bytes": 262144,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 5953920,
+        "estimated_conv_linear_flops": 11907840,
+        "summed_leaf_output_bytes": 2851852
+      }
+    },
+    "v2": {
+      "baseline": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.22909629344940186,
+            "feature_variance": 0.11476898193359375,
+            "zero_fraction": 0.5005900263786316
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.023059863597154617,
+            "feature_variance": 0.0012688572751358151,
+            "zero_fraction": 0.50762939453125
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.0027044236194342375,
+            "feature_variance": 2.1998501324560493e-05,
+            "zero_fraction": 0.5763753056526184
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_bytes": 36864,
+            "feature_mean": 0.000609049282502383,
+            "feature_variance": 7.750599024802796e-07,
+            "zero_fraction": 0.4695095419883728
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00012191545829409733,
+            "feature_variance": 2.387931452574321e-08,
+            "zero_fraction": 0.3881022036075592
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_bytes": 18432,
+            "feature_mean": 2.2190690287970938e-05,
+            "feature_variance": 1.03184261135425e-09,
+            "zero_fraction": 0.484375
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 3.6143046600045636e-06,
+            "feature_variance": 3.457920408345139e-11,
+            "zero_fraction": 0.5402018427848816
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 17047,
+        "trainable_parameters": 17047,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            12,
+            64,
+            64
+          ],
+          [
+            1,
+            16,
+            32,
+            32
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            36,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            72,
+            8,
+            8
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 489472,
+        "max_block_output_bytes": 196608,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 3709728,
+        "estimated_conv_linear_flops": 7419456,
+        "summed_leaf_output_bytes": 2089740
+      },
+      "single_repeat_control": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.22909629344940186,
+            "feature_variance": 0.11476898193359375,
+            "zero_fraction": 0.5005900263786316
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.023059863597154617,
+            "feature_variance": 0.0012688572751358151,
+            "zero_fraction": 0.50762939453125
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.0027044236194342375,
+            "feature_variance": 2.1998501324560493e-05,
+            "zero_fraction": 0.5763753056526184
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_bytes": 36864,
+            "feature_mean": 0.000609049282502383,
+            "feature_variance": 7.750599024802796e-07,
+            "zero_fraction": 0.4695095419883728
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00012191545829409733,
+            "feature_variance": 2.387931452574321e-08,
+            "zero_fraction": 0.3881022036075592
+          },
+          {
+            "name": "features.5",
+            "stage": 3,
+            "repeat": 1,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 2.438701812934596e-05,
+            "feature_variance": 1.063868770856402e-09,
+            "zero_fraction": 0.4598795473575592
+          },
+          {
+            "name": "features.6",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_bytes": 18432,
+            "feature_mean": 3.525963848005631e-06,
+            "feature_variance": 2.8189639858511306e-11,
+            "zero_fraction": 0.5206162929534912
+          },
+          {
+            "name": "features.7",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 4.254940222381265e-07,
+            "feature_variance": 4.553288627216767e-13,
+            "zero_fraction": 0.52978515625
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 19975,
+        "trainable_parameters": 19975,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            12,
+            64,
+            64
+          ],
+          [
+            1,
+            16,
+            32,
+            32
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            36,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            72,
+            8,
+            8
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 538624,
+        "max_block_output_bytes": 196608,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 4410144,
+        "estimated_conv_linear_flops": 8820288,
+        "summed_leaf_output_bytes": 2384652
+      },
+      "candidate_residual": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.22909629344940186,
+            "feature_variance": 0.11476898193359375,
+            "zero_fraction": 0.5005900263786316
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.023059863597154617,
+            "feature_variance": 0.0012688572751358151,
+            "zero_fraction": 0.50762939453125
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.0027044236194342375,
+            "feature_variance": 2.1998501324560493e-05,
+            "zero_fraction": 0.5763753056526184
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_bytes": 36864,
+            "feature_mean": 0.000609049282502383,
+            "feature_variance": 7.750599024802796e-07,
+            "zero_fraction": 0.4695095419883728
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00012191545829409733,
+            "feature_variance": 2.387931452574321e-08,
+            "zero_fraction": 0.3881022036075592
+          },
+          {
+            "name": "features.5",
+            "stage": 3,
+            "repeat": 1,
+            "type": "GumiBlockV2",
+            "active_residual": true,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00013833120465278625,
+            "feature_variance": 2.5030070460729803e-08,
+            "zero_fraction": 0.216064453125
+          },
+          {
+            "name": "features.6",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_bytes": 18432,
+            "feature_mean": 1.3050516827206593e-05,
+            "feature_variance": 4.0138736778772e-10,
+            "zero_fraction": 0.4958767294883728
+          },
+          {
+            "name": "features.7",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 2.106133933921228e-06,
+            "feature_variance": 1.066031984908733e-11,
+            "zero_fraction": 0.52587890625
+          }
+        ],
+        "active_residual_blocks": 1,
+        "active_residual_names": [
+          "features.5"
+        ],
+        "total_parameters": 19975,
+        "trainable_parameters": 19975,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            12,
+            64,
+            64
+          ],
+          [
+            1,
+            16,
+            32,
+            32
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            36,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            72,
+            8,
+            8
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 538624,
+        "max_block_output_bytes": 196608,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 4410144,
+        "estimated_conv_linear_flops": 8820288,
+        "summed_leaf_output_bytes": 2384652
+      },
+      "alternate_residual_location": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.22909629344940186,
+            "feature_variance": 0.11476898193359375,
+            "zero_fraction": 0.5005900263786316
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.023059863597154617,
+            "feature_variance": 0.0012688572751358151,
+            "zero_fraction": 0.50762939453125
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.0027044236194342375,
+            "feature_variance": 2.1998501324560493e-05,
+            "zero_fraction": 0.5763753056526184
+          },
+          {
+            "name": "features.3",
+            "stage": 1,
+            "repeat": 1,
+            "type": "GumiBlockV2",
+            "active_residual": true,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.0031844843178987503,
+            "feature_variance": 2.0170440620859154e-05,
+            "zero_fraction": 0.2247721403837204
+          },
+          {
+            "name": "features.4",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_bytes": 36864,
+            "feature_mean": 0.00042239075992256403,
+            "feature_variance": 4.872436534242297e-07,
+            "zero_fraction": 0.5483940839767456
+          },
+          {
+            "name": "features.5",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 4.3539912439882755e-05,
+            "feature_variance": 4.012064458436271e-09,
+            "zero_fraction": 0.48583984375
+          },
+          {
+            "name": "features.6",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_bytes": 18432,
+            "feature_mean": 6.9009975049993955e-06,
+            "feature_variance": 1.1291350493491947e-10,
+            "zero_fraction": 0.5355902910232544
+          },
+          {
+            "name": "features.7",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 1.0341358347432106e-06,
+            "feature_variance": 2.6521332872897485e-12,
+            "zero_fraction": 0.5485026240348816
+          }
+        ],
+        "active_residual_blocks": 1,
+        "active_residual_names": [
+          "features.3"
+        ],
+        "total_parameters": 17935,
+        "trainable_parameters": 17935,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            12,
+            64,
+            64
+          ],
+          [
+            1,
+            16,
+            32,
+            32
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            36,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            72,
+            8,
+            8
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 587776,
+        "max_block_output_bytes": 196608,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 4520736,
+        "estimated_conv_linear_flops": 9041472,
+        "summed_leaf_output_bytes": 2679564
+      },
+      "late_downsampling": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.22909629344940186,
+            "feature_variance": 0.11476898193359375,
+            "zero_fraction": 0.5005900263786316
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_bytes": 262144,
+            "feature_mean": 0.02304786443710327,
+            "feature_variance": 0.0012763492995873094,
+            "zero_fraction": 0.5082550048828125
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              24,
+              64,
+              64
+            ],
+            "output_bytes": 393216,
+            "feature_mean": 0.0027353179175406694,
+            "feature_variance": 2.2459884348791093e-05,
+            "zero_fraction": 0.576446533203125
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              36,
+              32,
+              32
+            ],
+            "output_bytes": 147456,
+            "feature_mean": 0.0006253636674955487,
+            "feature_variance": 8.113944431897835e-07,
+            "zero_fraction": 0.4759928286075592
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              36,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00012807751772925258,
+            "feature_variance": 2.4836300127617505e-08,
+            "zero_fraction": 0.3784993588924408
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_bytes": 18432,
+            "feature_mean": 2.3210661311168224e-05,
+            "feature_variance": 1.0763233637689495e-09,
+            "zero_fraction": 0.486328125
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 3.7259230794006726e-06,
+            "feature_variance": 3.595726147387346e-11,
+            "zero_fraction": 0.541015625
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 17047,
+        "trainable_parameters": 17047,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            12,
+            64,
+            64
+          ],
+          [
+            1,
+            16,
+            64,
+            64
+          ],
+          [
+            1,
+            24,
+            64,
+            64
+          ],
+          [
+            1,
+            36,
+            32,
+            32
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            72,
+            8,
+            8
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 1091584,
+        "max_block_output_bytes": 393216,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 7082784,
+        "estimated_conv_linear_flops": 14165568,
+        "summed_leaf_output_bytes": 5149452
+      },
+      "balanced_channels": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.22909629344940186,
+            "feature_variance": 0.11476898193359375,
+            "zero_fraction": 0.5005900263786316
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.023059863597154617,
+            "feature_variance": 0.0012688572751358151,
+            "zero_fraction": 0.50762939453125
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              32,
+              32,
+              32
+            ],
+            "output_bytes": 131072,
+            "feature_mean": 0.0036245814990252256,
+            "feature_variance": 3.1560572097077966e-05,
+            "zero_fraction": 0.505340576171875
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              32,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              40,
+              16,
+              16
+            ],
+            "output_bytes": 40960,
+            "feature_mean": 0.000746077043004334,
+            "feature_variance": 1.5707915963503183e-06,
+            "zero_fraction": 0.5381835699081421
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              40,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              56,
+              16,
+              16
+            ],
+            "output_bytes": 57344,
+            "feature_mean": 0.00016676427912898362,
+            "feature_variance": 5.52252892305205e-08,
+            "zero_fraction": 0.4651925265789032
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              56,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              64,
+              8,
+              8
+            ],
+            "output_bytes": 16384,
+            "feature_mean": 1.6035657608881593e-05,
+            "feature_variance": 6.738407609674368e-10,
+            "zero_fraction": 0.548095703125
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              64,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              84,
+              8,
+              8
+            ],
+            "output_bytes": 21504,
+            "feature_mean": 2.3959460122569e-06,
+            "feature_variance": 1.260087867382964e-11,
+            "zero_fraction": 0.4916294515132904
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 16791,
+        "trainable_parameters": 16791,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            12,
+            64,
+            64
+          ],
+          [
+            1,
+            16,
+            32,
+            32
+          ],
+          [
+            1,
+            32,
+            32,
+            32
+          ],
+          [
+            1,
+            40,
+            16,
+            16
+          ],
+          [
+            1,
+            56,
+            16,
+            16
+          ],
+          [
+            1,
+            64,
+            8,
+            8
+          ],
+          [
+            1,
+            84,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 529408,
+        "max_block_output_bytes": 196608,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 4015868,
+        "estimated_conv_linear_flops": 8031736,
+        "summed_leaf_output_bytes": 2246316
+      },
+      "projection_linear": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.22909629344940186,
+            "feature_variance": 0.11476898193359375,
+            "zero_fraction": 0.5005900263786316
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_bytes": 65536,
+            "feature_mean": -0.005290864035487175,
+            "feature_variance": 0.004549969453364611,
+            "zero_fraction": 0.001953125
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.0003039069415535778,
+            "feature_variance": 0.0002662945771589875,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_bytes": 36864,
+            "feature_mean": -0.00010051406570710242,
+            "feature_variance": 1.8074830222758465e-05,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00011221304157515988,
+            "feature_variance": 1.3427701333057485e-06,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.5",
+            "stage": 3,
+            "repeat": 1,
+            "type": "GumiBlockV2",
+            "active_residual": true,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00021807104349136353,
+            "feature_variance": 1.4841048141533975e-06,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.6",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_bytes": 18432,
+            "feature_mean": 3.5566245060181245e-05,
+            "feature_variance": 6.784578943097586e-08,
+            "zero_fraction": 0.0
+          },
+          {
+            "name": "features.7",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": -5.373207841330441e-06,
+            "feature_variance": 3.1955513790649093e-09,
+            "zero_fraction": 0.0
+          }
+        ],
+        "active_residual_blocks": 1,
+        "active_residual_names": [
+          "features.5"
+        ],
+        "total_parameters": 19975,
+        "trainable_parameters": 19975,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            12,
+            64,
+            64
+          ],
+          [
+            1,
+            16,
+            32,
+            32
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            36,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            72,
+            8,
+            8
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 538624,
+        "max_block_output_bytes": 196608,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 4410144,
+        "estimated_conv_linear_flops": 8820288,
+        "summed_leaf_output_bytes": 2042636
+      },
+      "projection_pre": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.22909629344940186,
+            "feature_variance": 0.11476898193359375,
+            "zero_fraction": 0.5005900263786316
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.023059863597154617,
+            "feature_variance": 0.0012688572751358151,
+            "zero_fraction": 0.50762939453125
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.0027044236194342375,
+            "feature_variance": 2.1998501324560493e-05,
+            "zero_fraction": 0.5763753056526184
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_bytes": 36864,
+            "feature_mean": 0.000609049282502383,
+            "feature_variance": 7.750599024802796e-07,
+            "zero_fraction": 0.4695095419883728
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00012191545829409733,
+            "feature_variance": 2.387931452574321e-08,
+            "zero_fraction": 0.3881022036075592
+          },
+          {
+            "name": "features.5",
+            "stage": 3,
+            "repeat": 1,
+            "type": "GumiBlockV2",
+            "active_residual": true,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.0001463024818804115,
+            "feature_variance": 2.597612080990075e-08,
+            "zero_fraction": 0.1880696564912796
+          },
+          {
+            "name": "features.6",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_bytes": 18432,
+            "feature_mean": 1.32656687128474e-05,
+            "feature_variance": 4.140809084507424e-10,
+            "zero_fraction": 0.5
+          },
+          {
+            "name": "features.7",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 2.158982169930823e-06,
+            "feature_variance": 1.1213478930127696e-11,
+            "zero_fraction": 0.5281575322151184
+          }
+        ],
+        "active_residual_blocks": 1,
+        "active_residual_names": [
+          "features.5"
+        ],
+        "total_parameters": 19975,
+        "trainable_parameters": 19975,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            12,
+            64,
+            64
+          ],
+          [
+            1,
+            16,
+            32,
+            32
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            36,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            72,
+            8,
+            8
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 538624,
+        "max_block_output_bytes": 196608,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 4410144,
+        "estimated_conv_linear_flops": 8820288,
+        "summed_leaf_output_bytes": 2384652
+      }
+    }
+  }
+}

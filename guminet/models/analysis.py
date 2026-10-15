@@ -15,8 +15,10 @@ def model_architecture_summary(model, input_size=128, batch_size=1, include_grad
     probe = copy.deepcopy(model).cpu().eval()
     blocks, handles, inputs = [], [], {}
     with torch.random.fork_rng(devices=[]):
-        torch.manual_seed(0)
-        example = torch.randn(batch_size, 3, input_size, input_size, requires_grad=include_gradients)
+        generator = torch.Generator(device="cpu").manual_seed(0)
+        example = torch.randn(
+            batch_size, 3, input_size, input_size, requires_grad=include_gradients, generator=generator
+        )
         costs = estimate_macs(probe, example.detach())
 
         def hook(name):

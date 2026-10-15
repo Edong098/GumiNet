@@ -1,0 +1,44 @@
+{
+  "v1": {
+    "completed_runs": 6,
+    "names": [
+      "baseline",
+      "kernel5",
+      "late_downsampling",
+      "balanced_channels",
+      "late_channels",
+      "leaky_relu"
+    ],
+    "purpose": "Functional smoke only"
+  },
+  "v2": {
+    "completed_runs": 8,
+    "names": [
+      "baseline",
+      "single_repeat_control",
+      "candidate_residual",
+      "alternate_residual_location",
+      "late_downsampling",
+      "balanced_channels",
+      "projection_linear",
+      "projection_pre"
+    ],
+    "purpose": "Functional smoke only"
+  },
+  "training": {
+    "completed_runs": 5,
+    "names": [
+      "baseline",
+      "lr",
+      "scheduler",
+      "augmentation",
+      "batch_size"
+    ],
+    "purpose": "Functional smoke only"
+  },
+  "retained_local_v010_checkpoint": {
+    "loaded": true,
+    "probabilities_sum": 0.9999999403953552,
+    "provenance": "Earlier local synthetic run, not user Intel checkpoint"
+  }
+}

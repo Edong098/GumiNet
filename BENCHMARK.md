@@ -57,3 +57,15 @@ sampling RSS setiap 250 ms selama bagian training. Ini pengukuran terpisah dari 
 seumur hidup, tetapi dapat melewatkan puncak sangat singkat; tidak sama dengan peak
 aktivasi. Field `dataset_sampled_peak_training_ram_mb` pada compare berasal dari epoch
 terakhir. Jalankan proses baru dan beberapa ulangan per model untuk pengukuran ilmiah.
+
+## Research Progress dan profiler terisolasi
+
+`guminet profile --config configs/research/profile.yaml` memakai exec proses baru secara
+berurutan per model. Jangan membandingkan lifetime RSS dari beberapa model pada runner
+ablation yang sama. Sampling RAM tetap250ms dan dapat melewatkan puncak singkat.
+Model asli plus salinan benchmark, runtime dan optimizer ada dalam lingkup proses.
+Feature/gradient diagnostics diambil setelah pengukuran benchmark. `guminet architecture`
+menyediakan shape/MAC/aktivasi/residual report; estimasi aktivasi bukan peak RSS.
+Trainer kini mencatat process CPU seconds terpisah dari training wall time. Laporan
+user Colab tidak memiliki batas timer pasti; jangan disamakan dengan timer baru.
+Lihat [RESOURCE_ANALYSIS](docs/research/RESOURCE_ANALYSIS.md).

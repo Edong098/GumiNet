@@ -1,0 +1,1357 @@
+{
+  "process_isolation": "fresh exec per model, sequential",
+  "results": [
+    {
+      "experiment_id": "642c81224e414772bd9a9be69b296795",
+      "timestamp_utc": "2026-10-15T18:38:28.301309+00:00",
+      "source": {
+        "git_commit": "2b3bdf41adf4d37cc0645e090f42871d6500f977",
+        "git_dirty": true,
+        "package_source_sha256": "917b664c32ccf2b3ca5ea37fb760adb3d4204f3d5f9f7675cc307617682ca107"
+      },
+      "config": {
+        "input_size": 128,
+        "num_classes": 3,
+        "batch_size": 1,
+        "threads": 2,
+        "warmup": 3,
+        "repeats": 20,
+        "train_steps": 5,
+        "name": "guminet_nano"
+      },
+      "data_source": "Random synthetic tensors; no classification dataset or test-set selection",
+      "name": "guminet_nano",
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 0.5,
+        "depth": 1,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v1",
+        "expansion": 1.0,
+        "residual": false
+      },
+      "process_id": 13094,
+      "metrics": {
+        "estimated_macs": 2092224,
+        "estimated_conv_linear_flops": 4184448,
+        "summed_leaf_output_bytes": 1425932,
+        "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+        "logical_cpu_count": 5,
+        "total_system_ram_mb": 34087.9296875,
+        "parameters": 8407,
+        "trainable_parameters": 8407,
+        "fp32_weight_bytes": 33628,
+        "serialized_state_dict_bytes": 61811,
+        "checkpoint_file_bytes": null,
+        "inference_batch_latency_ms": 1.2649130003410392,
+        "inference_p95_batch_ms": 2.1910626008320833,
+        "forward_ms": 2.0413379999808967,
+        "backward_ms": 2.7472915997350356,
+        "optimizer_step_ms": 0.15881220024311915,
+        "synthetic_train_duration_seconds": 0.024737208999795257,
+        "synthetic_train_images_per_second": 202.1246616803611,
+        "input_size": 128,
+        "batch_size": 1,
+        "warmup": 3,
+        "repeats": 20,
+        "device": "cpu",
+        "torch_version": "2.14.1+cpu",
+        "python": "3.12.14",
+        "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+        "cpu": "x86_64",
+        "cpu_threads": 2,
+        "sampled_peak_training_ram_mb": 435.93359375,
+        "ram_mb": 436.56640625,
+        "peak_process_ram_mb": 436.36328125,
+        "cuda_peak_mb": 0.0,
+        "cpu_latency_ms": 1.2649130003410392,
+        "memory_scope": "whole fresh worker, including original model plus benchmark copy and runtime"
+      },
+      "architecture_summary": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              8,
+              64,
+              64
+            ],
+            "output_bytes": 131072,
+            "feature_mean": 0.22563521564006805,
+            "feature_variance": 0.11135346442461014,
+            "zero_fraction": 0.500244140625,
+            "input_gradient_norm": 1.9477127466416277e-08,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              8,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              12,
+              32,
+              32
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.023885859176516533,
+            "feature_variance": 0.002060722094029188,
+            "zero_fraction": 0.5894368290901184,
+            "input_gradient_norm": 4.857743718389429e-08,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.003487812587991357,
+            "feature_variance": 2.8914770155097358e-05,
+            "zero_fraction": 0.5010986328125,
+            "input_gradient_norm": 3.277255018474534e-07,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              24,
+              16,
+              16
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 0.0004808771191164851,
+            "feature_variance": 6.946841608623799e-07,
+            "zero_fraction": 0.521484375,
+            "input_gradient_norm": 2.026000174737419e-06,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              32,
+              16,
+              16
+            ],
+            "output_bytes": 32768,
+            "feature_mean": 5.99843988311477e-05,
+            "feature_variance": 1.008879735309165e-08,
+            "zero_fraction": 0.5504150390625,
+            "input_gradient_norm": 1.2535912901512347e-05,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              32,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              8,
+              8
+            ],
+            "output_bytes": 12288,
+            "feature_mean": 8.056466867856216e-06,
+            "feature_variance": 1.4008513793406507e-10,
+            "zero_fraction": 0.4778645932674408,
+            "input_gradient_norm": 8.737996540730819e-05,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              64,
+              8,
+              8
+            ],
+            "output_bytes": 16384,
+            "feature_mean": 1.1211681112399674e-06,
+            "feature_variance": 2.408932428532573e-12,
+            "zero_fraction": 0.42236328125,
+            "input_gradient_norm": 0.0006313662161119282,
+            "finite_gradient": true
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 8407,
+        "trainable_parameters": 8407,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            8,
+            64,
+            64
+          ],
+          [
+            1,
+            12,
+            32,
+            32
+          ],
+          [
+            1,
+            16,
+            32,
+            32
+          ],
+          [
+            1,
+            24,
+            16,
+            16
+          ],
+          [
+            1,
+            32,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            8,
+            8
+          ],
+          [
+            1,
+            64,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 331776,
+        "max_block_output_bytes": 131072,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 2092224,
+        "estimated_conv_linear_flops": 4184448,
+        "summed_leaf_output_bytes": 1425932
+      }
+    },
+    {
+      "experiment_id": "bd041f0dc61e4ea68c5ae61d16ac6a2a",
+      "timestamp_utc": "2026-10-15T18:38:32.222383+00:00",
+      "source": {
+        "git_commit": "2b3bdf41adf4d37cc0645e090f42871d6500f977",
+        "git_dirty": true,
+        "package_source_sha256": "917b664c32ccf2b3ca5ea37fb760adb3d4204f3d5f9f7675cc307617682ca107"
+      },
+      "config": {
+        "input_size": 128,
+        "num_classes": 3,
+        "batch_size": 1,
+        "threads": 2,
+        "warmup": 3,
+        "repeats": 20,
+        "train_steps": 5,
+        "name": "guminet_tiny"
+      },
+      "data_source": "Random synthetic tensors; no classification dataset or test-set selection",
+      "name": "guminet_tiny",
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 1.0,
+        "depth": 1,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v1",
+        "expansion": 1.0,
+        "residual": false
+      },
+      "process_id": 13109,
+      "metrics": {
+        "estimated_macs": 5953920,
+        "estimated_conv_linear_flops": 11907840,
+        "summed_leaf_output_bytes": 2851852,
+        "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+        "logical_cpu_count": 5,
+        "total_system_ram_mb": 34087.9296875,
+        "parameters": 28907,
+        "trainable_parameters": 28907,
+        "fp32_weight_bytes": 115628,
+        "serialized_state_dict_bytes": 146803,
+        "checkpoint_file_bytes": null,
+        "inference_batch_latency_ms": 1.2957594999534194,
+        "inference_p95_batch_ms": 1.347884249753406,
+        "forward_ms": 1.915533000283176,
+        "backward_ms": 2.3436353996658,
+        "optimizer_step_ms": 0.1990370004932629,
+        "synthetic_train_duration_seconds": 0.022291027002211194,
+        "synthetic_train_images_per_second": 224.30550191805955,
+        "input_size": 128,
+        "batch_size": 1,
+        "warmup": 3,
+        "repeats": 20,
+        "device": "cpu",
+        "torch_version": "2.14.1+cpu",
+        "python": "3.12.14",
+        "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+        "cpu": "x86_64",
+        "cpu_threads": 2,
+        "sampled_peak_training_ram_mb": 437.16796875,
+        "ram_mb": 437.53125,
+        "peak_process_ram_mb": 437.28515625,
+        "cuda_peak_mb": 0.0,
+        "cpu_latency_ms": 1.2957594999534194,
+        "memory_scope": "whole fresh worker, including original model plus benchmark copy and runtime"
+      },
+      "architecture_summary": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_bytes": 262144,
+            "feature_mean": 0.22987373173236847,
+            "feature_variance": 0.11493982374668121,
+            "zero_fraction": 0.499420166015625,
+            "input_gradient_norm": 2.041658397899937e-08,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.03444197401404381,
+            "feature_variance": 0.003034288762137294,
+            "zero_fraction": 0.5564778447151184,
+            "input_gradient_norm": 4.86954654377314e-08,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              32,
+              32,
+              32
+            ],
+            "output_bytes": 131072,
+            "feature_mean": 0.0062099844217300415,
+            "feature_variance": 7.649250619579107e-05,
+            "zero_fraction": 0.4674072265625,
+            "input_gradient_norm": 2.634140514601313e-07,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              32,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.0006888802745379508,
+            "feature_variance": 1.1995222166660824e-06,
+            "zero_fraction": 0.5182291865348816,
+            "input_gradient_norm": 1.5328064364439342e-06,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              64,
+              16,
+              16
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.0001786357897799462,
+            "feature_variance": 5.063469998844994e-08,
+            "zero_fraction": 0.417724609375,
+            "input_gradient_norm": 9.75447164819343e-06,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              64,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 2.1620680854539387e-05,
+            "feature_variance": 1.2090928258601252e-09,
+            "zero_fraction": 0.5174153447151184,
+            "input_gradient_norm": 5.218442311161198e-05,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV1",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              128,
+              8,
+              8
+            ],
+            "output_bytes": 32768,
+            "feature_mean": 2.9067623472656123e-06,
+            "feature_variance": 1.7819443837163718e-11,
+            "zero_fraction": 0.49462890625,
+            "input_gradient_norm": 0.0003010205109603703,
+            "finite_gradient": true
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 28907,
+        "trainable_parameters": 28907,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            16,
+            64,
+            64
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            32,
+            32,
+            32
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            64,
+            16,
+            16
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ],
+          [
+            1,
+            128,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 663552,
+        "max_block_output_bytes": 262144,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 5953920,
+        "estimated_conv_linear_flops": 11907840,
+        "summed_leaf_output_bytes": 2851852
+      }
+    },
+    {
+      "experiment_id": "82e5c52de5074d7c9ce06a080b1b8df1",
+      "timestamp_utc": "2026-10-15T18:38:36.011590+00:00",
+      "source": {
+        "git_commit": "2b3bdf41adf4d37cc0645e090f42871d6500f977",
+        "git_dirty": true,
+        "package_source_sha256": "917b664c32ccf2b3ca5ea37fb760adb3d4204f3d5f9f7675cc307617682ca107"
+      },
+      "config": {
+        "input_size": 128,
+        "num_classes": 3,
+        "batch_size": 1,
+        "threads": 2,
+        "warmup": 3,
+        "repeats": 20,
+        "train_steps": 5,
+        "name": "v2_refined_d1_w075"
+      },
+      "data_source": "Random synthetic tensors; no classification dataset or test-set selection",
+      "name": "v2_refined_d1_w075",
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 0.75,
+        "depth": 1,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v2",
+        "expansion": 1.0,
+        "residual": false
+      },
+      "process_id": 13155,
+      "metrics": {
+        "estimated_macs": 3709728,
+        "estimated_conv_linear_flops": 7419456,
+        "summed_leaf_output_bytes": 2089740,
+        "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+        "logical_cpu_count": 5,
+        "total_system_ram_mb": 34087.9296875,
+        "parameters": 17047,
+        "trainable_parameters": 17047,
+        "fp32_weight_bytes": 68188,
+        "serialized_state_dict_bytes": 98355,
+        "checkpoint_file_bytes": null,
+        "inference_batch_latency_ms": 1.0525395000513527,
+        "inference_p95_batch_ms": 1.7450399505833054,
+        "forward_ms": 1.6415637997852173,
+        "backward_ms": 2.0185274002869846,
+        "optimizer_step_ms": 0.14638180036854465,
+        "synthetic_train_duration_seconds": 0.019032365002203733,
+        "synthetic_train_images_per_second": 262.7103883001958,
+        "input_size": 128,
+        "batch_size": 1,
+        "warmup": 3,
+        "repeats": 20,
+        "device": "cpu",
+        "torch_version": "2.14.1+cpu",
+        "python": "3.12.14",
+        "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+        "cpu": "x86_64",
+        "cpu_threads": 2,
+        "sampled_peak_training_ram_mb": 438.734375,
+        "ram_mb": 439.1171875,
+        "peak_process_ram_mb": 438.96484375,
+        "cuda_peak_mb": 0.0,
+        "cpu_latency_ms": 1.0525395000513527,
+        "memory_scope": "whole fresh worker, including original model plus benchmark copy and runtime"
+      },
+      "architecture_summary": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.22909629344940186,
+            "feature_variance": 0.11476898193359375,
+            "zero_fraction": 0.5005900263786316,
+            "input_gradient_norm": 3.4973904661228516e-08,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.023059863597154617,
+            "feature_variance": 0.0012688572751358151,
+            "zero_fraction": 0.50762939453125,
+            "input_gradient_norm": 8.941488971458966e-08,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.0027044236194342375,
+            "feature_variance": 2.1998501324560493e-05,
+            "zero_fraction": 0.5763753056526184,
+            "input_gradient_norm": 6.265786964831932e-07,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_bytes": 36864,
+            "feature_mean": 0.000609049282502383,
+            "feature_variance": 7.750599024802796e-07,
+            "zero_fraction": 0.4695095419883728,
+            "input_gradient_norm": 3.727984449142241e-06,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00012191545829409733,
+            "feature_variance": 2.387931452574321e-08,
+            "zero_fraction": 0.3881022036075592,
+            "input_gradient_norm": 1.9522693037288263e-05,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.5",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_bytes": 18432,
+            "feature_mean": 2.2190690287970938e-05,
+            "feature_variance": 1.03184261135425e-09,
+            "zero_fraction": 0.484375,
+            "input_gradient_norm": 0.00010748532804427668,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.6",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 3.6143046600045636e-06,
+            "feature_variance": 3.457920408345139e-11,
+            "zero_fraction": 0.5402018427848816,
+            "input_gradient_norm": 0.0005517658428288996,
+            "finite_gradient": true
+          }
+        ],
+        "active_residual_blocks": 0,
+        "active_residual_names": [],
+        "total_parameters": 17047,
+        "trainable_parameters": 17047,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            12,
+            64,
+            64
+          ],
+          [
+            1,
+            16,
+            32,
+            32
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            36,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            72,
+            8,
+            8
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 489472,
+        "max_block_output_bytes": 196608,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 3709728,
+        "estimated_conv_linear_flops": 7419456,
+        "summed_leaf_output_bytes": 2089740
+      }
+    },
+    {
+      "experiment_id": "323eb576ff5a473cb976a29676dd03ac",
+      "timestamp_utc": "2026-10-15T18:38:39.538689+00:00",
+      "source": {
+        "git_commit": "2b3bdf41adf4d37cc0645e090f42871d6500f977",
+        "git_dirty": true,
+        "package_source_sha256": "917b664c32ccf2b3ca5ea37fb760adb3d4204f3d5f9f7675cc307617682ca107"
+      },
+      "config": {
+        "input_size": 128,
+        "num_classes": 3,
+        "batch_size": 1,
+        "threads": 2,
+        "warmup": 3,
+        "repeats": 20,
+        "train_steps": 5,
+        "name": "v2_candidate_stage3"
+      },
+      "data_source": "Random synthetic tensors; no classification dataset or test-set selection",
+      "name": "v2_candidate_stage3",
+      "model_config": {
+        "num_classes": 3,
+        "dropout": 0.2,
+        "width": 0.75,
+        "depth": 1,
+        "channels": [
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "strides": [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "version": "v2",
+        "expansion": 1.0,
+        "residual": true,
+        "stage_depths": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        "residual_stages": [
+          3
+        ]
+      },
+      "process_id": 13255,
+      "metrics": {
+        "estimated_macs": 4410144,
+        "estimated_conv_linear_flops": 8820288,
+        "summed_leaf_output_bytes": 2384652,
+        "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+        "logical_cpu_count": 5,
+        "total_system_ram_mb": 34087.9296875,
+        "parameters": 19975,
+        "trainable_parameters": 19975,
+        "fp32_weight_bytes": 79900,
+        "serialized_state_dict_bytes": 114831,
+        "checkpoint_file_bytes": null,
+        "inference_batch_latency_ms": 1.1052640002162661,
+        "inference_p95_batch_ms": 1.3946673015198032,
+        "forward_ms": 2.4758578001637943,
+        "backward_ms": 1.9916994002414867,
+        "optimizer_step_ms": 0.18595719957374968,
+        "synthetic_train_duration_seconds": 0.023267571999895154,
+        "synthetic_train_images_per_second": 214.89135179306766,
+        "input_size": 128,
+        "batch_size": 1,
+        "warmup": 3,
+        "repeats": 20,
+        "device": "cpu",
+        "torch_version": "2.14.1+cpu",
+        "python": "3.12.14",
+        "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+        "cpu": "x86_64",
+        "cpu_threads": 2,
+        "sampled_peak_training_ram_mb": 439.125,
+        "ram_mb": 439.63671875,
+        "peak_process_ram_mb": 439.51953125,
+        "cuda_peak_mb": 0.0,
+        "cpu_latency_ms": 1.1052640002162661,
+        "memory_scope": "whole fresh worker, including original model plus benchmark copy and runtime"
+      },
+      "architecture_summary": {
+        "blocks": [
+          {
+            "name": "features.0",
+            "stage": null,
+            "repeat": null,
+            "type": "Sequential",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              3,
+              128,
+              128
+            ],
+            "output_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_bytes": 196608,
+            "feature_mean": 0.22909629344940186,
+            "feature_variance": 0.11476898193359375,
+            "zero_fraction": 0.5005900263786316,
+            "input_gradient_norm": 1.6475768305213023e-08,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.1",
+            "stage": 0,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              12,
+              64,
+              64
+            ],
+            "output_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_bytes": 65536,
+            "feature_mean": 0.023059863597154617,
+            "feature_variance": 0.0012688572751358151,
+            "zero_fraction": 0.50762939453125,
+            "input_gradient_norm": 4.270313880283538e-08,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.2",
+            "stage": 1,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              16,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_bytes": 98304,
+            "feature_mean": 0.0027044236194342375,
+            "feature_variance": 2.1998501324560493e-05,
+            "zero_fraction": 0.5763753056526184,
+            "input_gradient_norm": 2.941950185686437e-07,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.3",
+            "stage": 2,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              24,
+              32,
+              32
+            ],
+            "output_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_bytes": 36864,
+            "feature_mean": 0.000609049282502383,
+            "feature_variance": 7.750599024802796e-07,
+            "zero_fraction": 0.4695095419883728,
+            "input_gradient_norm": 1.8025510826191748e-06,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.4",
+            "stage": 3,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              36,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00012191545829409733,
+            "feature_variance": 2.387931452574321e-08,
+            "zero_fraction": 0.3881022036075592,
+            "input_gradient_norm": 9.993676030717324e-06,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.5",
+            "stage": 3,
+            "repeat": 1,
+            "type": "GumiBlockV2",
+            "active_residual": true,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_bytes": 49152,
+            "feature_mean": 0.00013833120465278625,
+            "feature_variance": 2.5030070460729803e-08,
+            "zero_fraction": 0.216064453125,
+            "input_gradient_norm": 5.5028198403306305e-05,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.6",
+            "stage": 4,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              48,
+              16,
+              16
+            ],
+            "output_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_bytes": 18432,
+            "feature_mean": 1.3050516827206593e-05,
+            "feature_variance": 4.0138736778772e-10,
+            "zero_fraction": 0.4958767294883728,
+            "input_gradient_norm": 6.145713268779218e-05,
+            "finite_gradient": true
+          },
+          {
+            "name": "features.7",
+            "stage": 5,
+            "repeat": 0,
+            "type": "GumiBlockV2",
+            "active_residual": false,
+            "input_shape": [
+              1,
+              72,
+              8,
+              8
+            ],
+            "output_shape": [
+              1,
+              96,
+              8,
+              8
+            ],
+            "output_bytes": 24576,
+            "feature_mean": 2.106133933921228e-06,
+            "feature_variance": 1.066031984908733e-11,
+            "zero_fraction": 0.52587890625,
+            "input_gradient_norm": 0.0003410241042729467,
+            "finite_gradient": true
+          }
+        ],
+        "active_residual_blocks": 1,
+        "active_residual_names": [
+          "features.5"
+        ],
+        "total_parameters": 19975,
+        "trainable_parameters": 19975,
+        "input_shape": [
+          1,
+          3,
+          128,
+          128
+        ],
+        "output_shape": [
+          1,
+          3
+        ],
+        "feature_map_sizes": [
+          [
+            1,
+            12,
+            64,
+            64
+          ],
+          [
+            1,
+            16,
+            32,
+            32
+          ],
+          [
+            1,
+            24,
+            32,
+            32
+          ],
+          [
+            1,
+            36,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            48,
+            16,
+            16
+          ],
+          [
+            1,
+            72,
+            8,
+            8
+          ],
+          [
+            1,
+            96,
+            8,
+            8
+          ]
+        ],
+        "estimated_activation_bytes": 538624,
+        "max_block_output_bytes": 196608,
+        "activation_estimate_definition": "Sum of stem and block output tensors; not live peak, saved backward tensors, or RSS",
+        "estimated_macs": 4410144,
+        "estimated_conv_linear_flops": 8820288,
+        "summed_leaf_output_bytes": 2384652
+      }
+    }
+  ]
+}

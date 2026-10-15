@@ -36,3 +36,14 @@ memudahkan porting tetapi tidak membuktikan dukungan semua runtime/perangkat.
 
 Belum ada bukti peningkatan V2, novelty, state-of-the-art, atau kelayakan universal
 pada RAM 4 GB. Hasil sintetis hanya membuktikan jalur perangkat lunak dapat dieksekusi.
+
+## Research Progress
+
+Hasil Intel/Colab pengguna kini disimpan dengan provenance user_reported_google_colab.
+Tiny mean validation F1 92,353% dan Nano89,438%; V2 Plain86,959%, Residual87,085%,
+refined90,265%. Ini n=3 pada subset3kelas, bukan reproduksi Codex atau perbandingan
+dengan EfficientNet/MobileNet/ShuffleNet. Lihat [laporan teknis](docs/research/TECHNICAL_REPORT.md).
+Audit membuktikan kesetaraan operasi D1/expansion1/no-skip V1/V2 pada width sama.
+Kandidat single-stage residual harus dibandingkan terhadap kontrol repeat tanpa skip.
+Banyak percobaan di validation sama meningkatkan multiple-comparison bias; jumlah
+percobaan, control utama dan split harus dicatat. Evaluasi lintas dataset diperlukan.

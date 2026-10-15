@@ -11,3 +11,15 @@
 - [ ] Ablation tambahan, latency variance/energy, publikasi hasil termasuk hasil negatif.
 - [ ] Pretrained weights dengan provenance dataset dan model card setelah eksperimen.
 - [ ] Publikasi paket/release hanya setelah persetujuan pemilik.
+
+## Research Progress
+
+- [x] Arsip numerik dan laporan historis pengguna (bukan reproduksi independen).
+- [x] Audit kesetaraan V1/V2, safeguards defaults dan checkpoint reference v0.1.0.
+- [x] Refinement opt-in V1 dan kandidat V2 satu residual aktif ~20k parameter.
+- [x] Observability shape/gradient/activation estimate, YAML groups dan isolated CPU profiler.
+- [x] Experiment ID/source/split content manifest dan JSON/CSV/Markdown report.
+- [ ] Reproduksi Intel dengan split/log asli serta ablation multi-seed nyata.
+- [ ] Validasi mekanisme fitur/generalization, BN kecil, CUDA dan perangkat laptop nyata.
+
+Fokus tetap V1/V2, tanpa V3. Lihat docs/research/FUTURE_EXPERIMENTS.md.

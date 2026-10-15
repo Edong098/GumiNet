@@ -72,3 +72,14 @@ dan `lr` (head). Jangan memakai `resume` sekaligus mengganti head.
 augmentasi, memakai preprocessing dari checkpoint. Output JSON/CSV/PNG mencakup
 confusion matrix dan report per kelas. Test set tidak dipakai memilih hyperparameter.
 Gunakan output_dir berbeda untuk eksperimen berbeda agar artefak tidak tertimpa.
+
+## Provenance dan budget penelitian
+
+Run baru menyimpan experiment.json dan run_report.json/csv/md beserta metadata checkpoint
+opsional experiment. Manifest mencakup relative path/label/SHA256 contents train/val; test
+tidak dipakai untuk model selection. Startup hashing menambah I/O sebelum timer training.
+Custom dataset tanpa samples/tensors menghasilkan hash null dan harus diberi
+dataset_manifest_id eksternal. Resume dengan hash split yang berubah ditolak.
+training_time_budget_seconds + training_time_budget_metric: wall/process_cpu menghentikan
+run setelah epoch melewati budget (overshoot satu epoch mungkin). Checkpoint legacy
+tetap dapat diload; timing/provenance historis yang tidak tersedia tidak direka ulang.

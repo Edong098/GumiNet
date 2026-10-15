@@ -8,8 +8,9 @@ Nama *Gumi* terinspirasi bahasa Sasak, Lombok, yang berkaitan dengan bumi atau t
 teknologi yang membumi, sederhana, dan dapat digunakan tanpa komputer mahal.
 
 GPU merupakan akselerator opsional. Tidak ada jaminan setiap konfigurasi cocok untuk
-laptop RAM 4 GB. Belum tersedia pretrained weights resmi maupun hasil akurasi dataset
-nyata. V1 adalah baseline depthwise-separable; V2 adalah hipotesis eksperimen,
+laptop RAM 4 GB. Belum tersedia pretrained weights resmi. Kini tersedia hasil Intel/Colab
+yang dilaporkan pengguna, tersimpan terpisah dari pengujian software lokal; belum
+direproduksi mandiri. V1 adalah baseline depthwise-separable; V2 adalah hipotesis eksperimen,
 belum terbukti lebih unggul atau novel. Parameter/FLOPs kecil tidak menjamin latency rendah.
 EfficientNetV2 juga secara eksplisit meneliti efisiensi training; lihat [RESEARCH.md](RESEARCH.md).
 
@@ -189,3 +190,37 @@ Pasang wheel CPU Torch/torchvision terlebih dahulu sebelum memakai snapshot itu;
 untuk platform lain gunakan dependency di pyproject.toml dan jalankan ulang tests.
 Training pembanding yang memakai engine sama: `guminet compare --config configs/comparison.yaml`.
 Validasi alur sintetis mandiri: `python scripts/verify_baseline.py`.
+
+
+## Research Progress
+
+V1 dan Nano/Tiny/Small → verifikasi CPU → laporan Intel Kaggle tiga kelas → catatan
+perbandingan tujuh konfigurasi (tabel lengkap belum tersedia) → multi-seed42/123/2026 →
+identifikasi biaya V2/residual yang tidak konsisten → refinement width/depth → temuan
+kesetaraan V1/V2 tertentu → opsi satu residual aktif dan ablation terkontrol.
+
+[Riwayat](docs/research/EXPERIMENT_HISTORY.md), [laporan teknis](docs/research/TECHNICAL_REPORT.md),
+[hasil multi-seed](docs/research/MULTISEED_RESULTS.md) dan
+[data historis terstruktur](experiments/historical/user_reported_colab.json).
+Seluruh angka Colab diberi source:user_reported_google_colab, bukan reproduksi Codex.
+
+Model aktif tetap Nano (efisiensi), Tiny (baseline utama V1), V2 Plain (kontrol), dan
+V2 Residual (eksperimen). Registry lama tetap tersedia. Preset opt-in baru:
+`v2_refined_d1_w075` (17.047 parameter) dan `v2_candidate_stage3` (19.975, satu skip aktif;
+jumlah untuk3kelas). Tidak ada V3 atau perubahan default factory.
+
+```bash
+guminet architecture --config configs/research/architecture.yaml
+guminet profile --config configs/research/profile.yaml
+guminet ablate --config configs/research/v1_ablation.yaml
+guminet ablate --config configs/research/v2_ablation.yaml
+guminet ablate --config configs/research/training_ablation.yaml
+```
+
+Ablation menggunakan validation, tidak membaca test. Set path dataset/output sebelum
+menjalankan; full dataset tidak otomatis dilatih saat implementasi. Run baru mencatat
+experiment ID, timestamp, git/source hash, train/val content manifest, konfigurasi,
+dependency/hardware, parameter/MAC, waktu wall/processCPU dan checkpoint lineage dalam
+JSON/CSV/Markdown. Lihat [protokol Colab](docs/research/ABLATION_PROTOCOL.md).
+Status tetap experimental: ada risiko multiple-comparison bias pada validation sama,
+dan generalisasi memerlukan dataset lain. Belum ada bukti V2 lebih unggul atau novelty.

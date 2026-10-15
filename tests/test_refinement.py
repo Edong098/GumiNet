@@ -143,3 +143,14 @@ def test_baseline_shapes_and_historical_grid():
         for residual in (False, True):
             model = create_model("guminet_v2_plain", 3, depth=depth, width=width, residual=residual)
             assert sum(p.numel() for p in model.parameters()) == expected
+
+
+def test_summary_does_not_reseed_global_devices(monkeypatch):
+    model = create_model("v2_candidate_stage3", 3)
+
+    def forbid_global_reseed(*args, **kwargs):
+        raise AssertionError("Summary must not reset global CPU/CUDA seeds")
+
+    monkeypatch.setattr(torch, "manual_seed", forbid_global_reseed)
+    report = model_architecture_summary(model, include_gradients=True)
+    assert report["active_residual_blocks"] == 1
