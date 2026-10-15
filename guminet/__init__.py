@@ -12,7 +12,10 @@ __all__ = [
     "create_model",
     "guminet_nano",
     "guminet_tiny",
+    "model_architecture_summary",
     "guminet_small",
     "GumiTrainer",
     "GumiPredictor",
 ]
+
+from .models import model_architecture_summary
