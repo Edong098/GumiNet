@@ -1,0 +1,6 @@
+source,seed,depth,width,residual,expansion,validation_macro_f1_percent,training_wall_seconds_user_reported,precision,overlap_note
+user_reported_google_colab,42,1,0.75,False,1.0,90.48,93.95,rounded as supplied,D1 W075 repeats the seed42 refined run; not an additional independent observation
+user_reported_google_colab,42,2,0.75,True,1.0,83.8,149.18,rounded as supplied,
+user_reported_google_colab,42,2,0.5,True,1.0,83.66,134.43,rounded as supplied,
+user_reported_google_colab,42,2,0.75,False,1.0,82.71,117.82,rounded as supplied,
+user_reported_google_colab,42,2,0.5,False,1.0,79.82,128.21,rounded as supplied,

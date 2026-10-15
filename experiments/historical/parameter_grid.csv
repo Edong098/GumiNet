@@ -1,0 +1,7 @@
+source,depth,width,parameters,identity_residual_changes_parameters
+user_reported_google_colab,1,0.5,8407,False
+user_reported_google_colab,1,0.75,17047,False
+user_reported_google_colab,1,1.0,28907,False
+user_reported_google_colab,2,0.5,19355,False
+user_reported_google_colab,2,0.75,39675,False
+user_reported_google_colab,2,1.0,67603,False

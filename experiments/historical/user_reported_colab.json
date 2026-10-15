@@ -1,0 +1,505 @@
+{
+  "source": "user_reported_google_colab",
+  "reproduced_by_codex": false,
+  "original_artifacts_available": false,
+  "dataset": {
+    "name": "Intel Image Classification (Kaggle subset)",
+    "classes": [
+      "buildings",
+      "forest",
+      "sea"
+    ],
+    "train": 900,
+    "val": 180,
+    "test": 300,
+    "per_class": {
+      "train": 300,
+      "val": 60,
+      "test": 100
+    },
+    "split_manifest_hash": null
+  },
+  "environment": {
+    "host": "Google Colab CPU, user report",
+    "cpu_model": null,
+    "ram": null,
+    "dependency_versions": null
+  },
+  "training": {
+    "input_size": 128,
+    "batch_size": 4,
+    "accumulation_steps": 2,
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "scheduler": "cosine",
+    "max_epochs": 10,
+    "device": "cpu",
+    "threads": 2,
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "unknown": [
+      "exact subset paths",
+      "split identity",
+      "augmentation details",
+      "weight decay",
+      "patience",
+      "timing boundaries",
+      "dependency versions",
+      "raw logs"
+    ]
+  },
+  "multiseed_runs": [
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_nano",
+      "seed": 42,
+      "best_epoch": 10,
+      "validation_accuracy_percent": 90.555556,
+      "validation_macro_f1_percent": 90.521548,
+      "training_wall_seconds_user_reported": 80.264432,
+      "parameters": 8407
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_nano",
+      "seed": 123,
+      "best_epoch": 10,
+      "validation_accuracy_percent": 91.111111,
+      "validation_macro_f1_percent": 90.900102,
+      "training_wall_seconds_user_reported": 81.548823,
+      "parameters": 8407
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_nano",
+      "seed": 2026,
+      "best_epoch": 6,
+      "validation_accuracy_percent": 87.222222,
+      "validation_macro_f1_percent": 86.892672,
+      "training_wall_seconds_user_reported": 84.728381,
+      "parameters": 8407
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_tiny",
+      "seed": 42,
+      "best_epoch": 4,
+      "validation_accuracy_percent": 91.666667,
+      "validation_macro_f1_percent": 91.599942,
+      "training_wall_seconds_user_reported": 89.406169,
+      "parameters": 28907
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_tiny",
+      "seed": 123,
+      "best_epoch": 6,
+      "validation_accuracy_percent": 92.222222,
+      "validation_macro_f1_percent": 92.157738,
+      "training_wall_seconds_user_reported": 104.408887,
+      "parameters": 28907
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_tiny",
+      "seed": 2026,
+      "best_epoch": 8,
+      "validation_accuracy_percent": 93.333333,
+      "validation_macro_f1_percent": 93.300356,
+      "training_wall_seconds_user_reported": 100.178819,
+      "parameters": 28907
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_v2_plain",
+      "seed": 42,
+      "best_epoch": 3,
+      "validation_accuracy_percent": null,
+      "validation_macro_f1_percent": 84.980745,
+      "training_wall_seconds_user_reported": 128.43174,
+      "parameters": 67603
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_v2_plain",
+      "seed": 123,
+      "best_epoch": 8,
+      "validation_accuracy_percent": null,
+      "validation_macro_f1_percent": 88.236644,
+      "training_wall_seconds_user_reported": 159.111553,
+      "parameters": 67603
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_v2_plain",
+      "seed": 2026,
+      "best_epoch": 6,
+      "validation_accuracy_percent": null,
+      "validation_macro_f1_percent": 87.658971,
+      "training_wall_seconds_user_reported": 159.718006,
+      "parameters": 67603
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_v2_residual",
+      "seed": 42,
+      "best_epoch": 8,
+      "validation_accuracy_percent": null,
+      "validation_macro_f1_percent": 88.12405,
+      "training_wall_seconds_user_reported": 165.722625,
+      "parameters": 67603
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_v2_residual",
+      "seed": 123,
+      "best_epoch": 6,
+      "validation_accuracy_percent": null,
+      "validation_macro_f1_percent": 87.711655,
+      "training_wall_seconds_user_reported": 158.93147,
+      "parameters": 67603
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_v2_residual",
+      "seed": 2026,
+      "best_epoch": 4,
+      "validation_accuracy_percent": null,
+      "validation_macro_f1_percent": 85.417871,
+      "training_wall_seconds_user_reported": 147.604045,
+      "parameters": 67603
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "v2_refined_d1_w075",
+      "seed": 42,
+      "best_epoch": 10,
+      "validation_accuracy_percent": 90.555556,
+      "validation_macro_f1_percent": 90.483756,
+      "training_wall_seconds_user_reported": 93.945401,
+      "parameters": 17047
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "v2_refined_d1_w075",
+      "seed": 123,
+      "best_epoch": 10,
+      "validation_accuracy_percent": 88.333333,
+      "validation_macro_f1_percent": 88.184073,
+      "training_wall_seconds_user_reported": 99.224884,
+      "parameters": 17047
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "v2_refined_d1_w075",
+      "seed": 2026,
+      "best_epoch": 10,
+      "validation_accuracy_percent": 92.222222,
+      "validation_macro_f1_percent": 92.125847,
+      "training_wall_seconds_user_reported": 100.082954,
+      "parameters": 17047
+    }
+  ],
+  "summary": [
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_nano",
+      "n": 3,
+      "reported_summary": {
+        "f1_mean_percent": 89.438,
+        "f1_sample_std_pp": 2.213,
+        "accuracy_mean_percent": 89.63,
+        "training_seconds_mean": 82.181
+      },
+      "recomputed_from_reported_rows": {
+        "f1_mean_percent": 89.43810733333333,
+        "f1_sample_std_pp": 2.2125226687799886,
+        "training_seconds_mean": 82.18054533333333,
+        "accuracy_mean_percent": 89.62962966666666
+      },
+      "differences_recomputed_minus_reported": {
+        "f1_mean_percent": 0.00010733333333234896,
+        "f1_sample_std_pp": -0.00047733122001147876,
+        "accuracy_mean_percent": -0.00037033333333624796,
+        "training_seconds_mean": -0.0004546666666698229
+      },
+      "std_convention": "sample, ddof=1; percentages and percentage points"
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_tiny",
+      "n": 3,
+      "reported_summary": {
+        "f1_mean_percent": 92.353,
+        "f1_sample_std_pp": 0.867,
+        "accuracy_mean_percent": 92.407,
+        "training_seconds_mean": 97.998
+      },
+      "recomputed_from_reported_rows": {
+        "f1_mean_percent": 92.35267866666666,
+        "f1_sample_std_pp": 0.86680640311971,
+        "training_seconds_mean": 97.99795833333333,
+        "accuracy_mean_percent": 92.40740733333334
+      },
+      "differences_recomputed_minus_reported": {
+        "f1_mean_percent": -0.0003213333333320634,
+        "f1_sample_std_pp": -0.00019359688028997013,
+        "accuracy_mean_percent": 0.0004073333333423079,
+        "training_seconds_mean": -4.1666666675155284e-05
+      },
+      "std_convention": "sample, ddof=1; percentages and percentage points"
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_v2_plain",
+      "n": 3,
+      "reported_summary": {
+        "f1_mean_percent": 86.959,
+        "f1_sample_std_pp": 1.737,
+        "training_seconds_mean": 149.087
+      },
+      "recomputed_from_reported_rows": {
+        "f1_mean_percent": 86.95878666666667,
+        "f1_sample_std_pp": 1.7372141923304476,
+        "training_seconds_mean": 149.08709966666666
+      },
+      "differences_recomputed_minus_reported": {
+        "f1_mean_percent": -0.00021333333333473092,
+        "f1_sample_std_pp": 0.00021419233044750463,
+        "training_seconds_mean": 9.966666667082791e-05
+      },
+      "std_convention": "sample, ddof=1; percentages and percentage points"
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_v2_residual",
+      "n": 3,
+      "reported_summary": {
+        "f1_mean_percent": 87.085,
+        "f1_sample_std_pp": 1.458,
+        "training_seconds_mean": 157.419
+      },
+      "recomputed_from_reported_rows": {
+        "f1_mean_percent": 87.08452533333333,
+        "f1_sample_std_pp": 1.458019173097637,
+        "training_seconds_mean": 157.41938
+      },
+      "differences_recomputed_minus_reported": {
+        "f1_mean_percent": -0.00047466666666196033,
+        "f1_sample_std_pp": 1.9173097637104064e-05,
+        "training_seconds_mean": 0.00037999999997850864
+      },
+      "std_convention": "sample, ddof=1; percentages and percentage points"
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "v2_refined_d1_w075",
+      "n": 3,
+      "reported_summary": {
+        "f1_mean_percent": 90.265,
+        "f1_sample_std_pp": 1.98,
+        "training_seconds_mean": 97.75
+      },
+      "recomputed_from_reported_rows": {
+        "f1_mean_percent": 90.26455866666666,
+        "f1_sample_std_pp": 1.9800078711899922,
+        "training_seconds_mean": 97.75107966666667,
+        "accuracy_mean_percent": 90.37037033333333
+      },
+      "differences_recomputed_minus_reported": {
+        "f1_mean_percent": -0.0004413333333417313,
+        "f1_sample_std_pp": 7.871189992236793e-06,
+        "training_seconds_mean": 0.0010796666666692545
+      },
+      "std_convention": "sample, ddof=1; percentages and percentage points"
+    }
+  ],
+  "refinement_seed42": [
+    {
+      "source": "user_reported_google_colab",
+      "seed": 42,
+      "depth": 1,
+      "width": 0.75,
+      "residual": false,
+      "expansion": 1.0,
+      "validation_macro_f1_percent": 90.48,
+      "training_wall_seconds_user_reported": 93.95,
+      "precision": "rounded as supplied",
+      "overlap_note": "D1 W075 repeats the seed42 refined run; not an additional independent observation"
+    },
+    {
+      "source": "user_reported_google_colab",
+      "seed": 42,
+      "depth": 2,
+      "width": 0.75,
+      "residual": true,
+      "expansion": 1.0,
+      "validation_macro_f1_percent": 83.8,
+      "training_wall_seconds_user_reported": 149.18,
+      "precision": "rounded as supplied",
+      "overlap_note": null
+    },
+    {
+      "source": "user_reported_google_colab",
+      "seed": 42,
+      "depth": 2,
+      "width": 0.5,
+      "residual": true,
+      "expansion": 1.0,
+      "validation_macro_f1_percent": 83.66,
+      "training_wall_seconds_user_reported": 134.43,
+      "precision": "rounded as supplied",
+      "overlap_note": null
+    },
+    {
+      "source": "user_reported_google_colab",
+      "seed": 42,
+      "depth": 2,
+      "width": 0.75,
+      "residual": false,
+      "expansion": 1.0,
+      "validation_macro_f1_percent": 82.71,
+      "training_wall_seconds_user_reported": 117.82,
+      "precision": "rounded as supplied",
+      "overlap_note": null
+    },
+    {
+      "source": "user_reported_google_colab",
+      "seed": 42,
+      "depth": 2,
+      "width": 0.5,
+      "residual": false,
+      "expansion": 1.0,
+      "validation_macro_f1_percent": 79.82,
+      "training_wall_seconds_user_reported": 128.21,
+      "precision": "rounded as supplied",
+      "overlap_note": null
+    }
+  ],
+  "parameter_grid": [
+    {
+      "source": "user_reported_google_colab",
+      "depth": 1,
+      "width": 0.5,
+      "parameters": 8407,
+      "identity_residual_changes_parameters": false
+    },
+    {
+      "source": "user_reported_google_colab",
+      "depth": 1,
+      "width": 0.75,
+      "parameters": 17047,
+      "identity_residual_changes_parameters": false
+    },
+    {
+      "source": "user_reported_google_colab",
+      "depth": 1,
+      "width": 1.0,
+      "parameters": 28907,
+      "identity_residual_changes_parameters": false
+    },
+    {
+      "source": "user_reported_google_colab",
+      "depth": 2,
+      "width": 0.5,
+      "parameters": 19355,
+      "identity_residual_changes_parameters": false
+    },
+    {
+      "source": "user_reported_google_colab",
+      "depth": 2,
+      "width": 0.75,
+      "parameters": 39675,
+      "identity_residual_changes_parameters": false
+    },
+    {
+      "source": "user_reported_google_colab",
+      "depth": 2,
+      "width": 1.0,
+      "parameters": 67603,
+      "identity_residual_changes_parameters": false
+    }
+  ],
+  "test_results": [
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_nano",
+      "test_accuracy_percent": 86.3333,
+      "test_macro_f1_percent": 86.1203,
+      "correct": 259,
+      "total": 300,
+      "class_order": [
+        "buildings",
+        "forest",
+        "sea"
+      ],
+      "confusion_matrix": [
+        [
+          75,
+          16,
+          9
+        ],
+        [
+          1,
+          97,
+          2
+        ],
+        [
+          9,
+          4,
+          87
+        ]
+      ],
+      "recall_percent": [
+        75,
+        97,
+        87
+      ],
+      "checkpoint_identity": null,
+      "seed": null,
+      "unknowns": "Checkpoint and seed for test results were not supplied; do not assign them to a validation run."
+    },
+    {
+      "source": "user_reported_google_colab",
+      "model": "guminet_tiny",
+      "test_accuracy_percent": 85,
+      "test_macro_f1_percent": 84.7575,
+      "correct": 255,
+      "total": 300,
+      "class_order": [
+        "buildings",
+        "forest",
+        "sea"
+      ],
+      "confusion_matrix": [
+        [
+          74,
+          18,
+          8
+        ],
+        [
+          1,
+          98,
+          1
+        ],
+        [
+          13,
+          4,
+          83
+        ]
+      ],
+      "recall_percent": [
+        74,
+        98,
+        83
+      ],
+      "checkpoint_identity": null,
+      "seed": null,
+      "unknowns": "Checkpoint and seed for test results were not supplied; do not assign them to a validation run."
+    }
+  ],
+  "seven_initial_models_note": "Prompt references seven initial models but does not supply their complete seven-model run table; do not reconstruct missing measurements."
+}

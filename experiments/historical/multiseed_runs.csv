@@ -1,0 +1,16 @@
+source,model,seed,best_epoch,validation_accuracy_percent,validation_macro_f1_percent,training_wall_seconds_user_reported,parameters
+user_reported_google_colab,guminet_nano,42,10,90.555556,90.521548,80.264432,8407
+user_reported_google_colab,guminet_nano,123,10,91.111111,90.900102,81.548823,8407
+user_reported_google_colab,guminet_nano,2026,6,87.222222,86.892672,84.728381,8407
+user_reported_google_colab,guminet_tiny,42,4,91.666667,91.599942,89.406169,28907
+user_reported_google_colab,guminet_tiny,123,6,92.222222,92.157738,104.408887,28907
+user_reported_google_colab,guminet_tiny,2026,8,93.333333,93.300356,100.178819,28907
+user_reported_google_colab,guminet_v2_plain,42,3,,84.980745,128.43174,67603
+user_reported_google_colab,guminet_v2_plain,123,8,,88.236644,159.111553,67603
+user_reported_google_colab,guminet_v2_plain,2026,6,,87.658971,159.718006,67603
+user_reported_google_colab,guminet_v2_residual,42,8,,88.12405,165.722625,67603
+user_reported_google_colab,guminet_v2_residual,123,6,,87.711655,158.93147,67603
+user_reported_google_colab,guminet_v2_residual,2026,4,,85.417871,147.604045,67603
+user_reported_google_colab,v2_refined_d1_w075,42,10,90.555556,90.483756,93.945401,17047
+user_reported_google_colab,v2_refined_d1_w075,123,10,88.333333,88.184073,99.224884,17047
+user_reported_google_colab,v2_refined_d1_w075,2026,10,92.222222,92.125847,100.082954,17047
