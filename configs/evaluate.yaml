@@ -1,0 +1,6 @@
+checkpoint: runs/low_resource/best.pt
+dataset: dataset/test
+batch_size: 4
+device: auto
+threads: 2
+output_dir: runs/evaluation

@@ -1,0 +1,12 @@
+model: guminet_nano
+dataset: dataset
+trials: 5
+epochs_per_trial: 5
+batch_sizes: [4, 8]
+input_sizes: [128, 160]
+num_workers: 0
+threads: 2
+device: auto
+study_name: guminet_low_resource
+seed: 42
+output_dir: runs/tuning

@@ -1,0 +1,11 @@
+model: guminet_tiny
+num_classes: 3
+input_size: 160
+batch_size: 1
+device: cpu
+threads: 2
+warmup: 3
+repeats: 20
+train_steps: 5
+pretrained: false
+output_dir: runs/benchmark

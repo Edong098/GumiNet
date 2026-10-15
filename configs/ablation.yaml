@@ -1,0 +1,7 @@
+dataset: dataset
+batch_size: 4
+epochs: 5
+seed: 42
+threads: 2
+device: cpu
+output_dir: runs/ablations

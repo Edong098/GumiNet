@@ -1,0 +1,5 @@
+checkpoint: runs/low_resource/best.pt
+output: runs/export/guminet.onnx
+validate: true
+quantized_output: runs/export/guminet_classifier_int8.onnx
+threads: 2

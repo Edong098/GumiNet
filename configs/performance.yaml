@@ -1,0 +1,6 @@
+profile: performance
+model: guminet_small
+dataset: dataset
+epochs: 30
+seed: 42
+output_dir: runs/performance

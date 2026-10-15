@@ -1,0 +1,6 @@
+profile: balanced
+model: guminet_tiny
+dataset: dataset
+epochs: 20
+seed: 42
+output_dir: runs/balanced
