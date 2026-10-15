@@ -1,4 +1,8 @@
-# Hasil verifikasi aktual
+# Arsip verifikasi implementasi awal
+
+Dokumen ini mencatat implementasi awal sebelum refinement V1/V2. Untuk status terbaru
+(**124 tes lulus**), lihat [verifikasi refinement](research/VERIFICATION.md). Angka dan
+catatan publikasi di bawah dipertahankan sebagai sejarah tahap awal, bukan status terkini.
 
 Lingkungan: Linux x86_64, Python 3.12.14, PyTorch 2.14.1+cpu,
 AMD EPYC 9V74, PyTorch threads=2. CUDA tidak tersedia. Daftar dependency aktual ada di

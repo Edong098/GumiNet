@@ -180,9 +180,11 @@ ruff check guminet tests scripts examples
 python -m build
 ```
 
-Hasil pengujian aktual dan batas validasi dicatat di [docs/VALIDATION.md](docs/VALIDATION.md).
-CI disediakan tetapi eksekusi GitHub Actions baru terjadi setelah perubahan diunggah
-oleh pengguna. Roadmap di [ROADMAP.md](ROADMAP.md); kontribusi di [CONTRIBUTING.md](CONTRIBUTING.md).
+Hasil validasi refinement terbaru (**124 tes lulus**) dan batas pengujiannya tersedia di
+[laporan verifikasi refinement](docs/research/VERIFICATION.md).
+[Laporan implementasi awal](docs/VALIDATION.md) dipertahankan sebagai arsip.
+Workflow GitHub Actions menjalankan CPU tests dan package build pada push/pull request;
+hasil eksekusi remote perlu dilihat pada tab Actions. Roadmap di [ROADMAP.md](ROADMAP.md); kontribusi di [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Snapshot dependency yang divalidasi pada Linux CPU/Python 3.12 tersedia di
 [requirements/validated-cpu-python312.txt](requirements/validated-cpu-python312.txt).
