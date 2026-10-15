@@ -123,6 +123,8 @@ def test_fresh_process_profiler(tmp_path):
         )
     )
     assert len({r["process_id"] for r in rows}) == 2
+    assert len({r["experiment_id"] for r in rows}) == 2
+    assert all(r["timestamp_utc"] and r["source"]["package_source_sha256"] for r in rows)
     assert all(r["process_id"] != os.getpid() for r in rows)
     assert all(r["metrics"]["cpu_latency_ms"] > 0 for r in rows)
     assert rows[1]["architecture_summary"]["active_residual_blocks"] == 1
@@ -139,3 +141,19 @@ def test_historical_data_integrity():
         matrix = r["confusion_matrix"]
         assert sum(map(sum, matrix)) == 300
         assert sum(matrix[i][i] for i in range(3)) == r["correct"]
+
+
+def test_legacy_missing_cpu_history_not_fabricated(tmp_path):
+    from guminet.research.tracking import save_run_report
+
+    experiment = dict(
+        experiment_id="legacy-test",
+        git_commit=None,
+        package_source_sha256="unavailable",
+        seed=42,
+        architecture_summary=dict(total_parameters=1, estimated_macs=1),
+    )
+    history = [dict(train_seconds=2, sampled_peak_training_ram_mb=1)]
+    report = save_run_report(tmp_path, experiment, history, 0.5, "epoch_limit")
+    assert report["total_process_cpu_training_seconds"] is None
+    assert not report["process_cpu_history_complete"]

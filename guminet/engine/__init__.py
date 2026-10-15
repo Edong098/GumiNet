@@ -168,6 +168,10 @@ class GumiTrainer:
             self.experiment = current
             if getattr(self, "_resume_path", None):
                 self.experiment["legacy_resume_checkpoint"] = self._resume_path
+                self.experiment["provenance_scope"] = (
+                    "Resume session only; original epoch provenance unavailable"
+                )
+                self.experiment["legacy_completed_epochs"] = self.start_epoch
         else:
             # A known split mismatch is never silently accepted on resume.
             for split in ("train", "val"):

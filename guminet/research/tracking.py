@@ -118,7 +118,12 @@ def save_run_report(output_dir, experiment, history, best_metric, stop_reason):
         best_validation_macro_f1=best_metric,
         validation_metrics=history[-1] if history else None,
         total_training_wall_seconds=sum(row["train_seconds"] for row in history),
-        total_process_cpu_training_seconds=sum(row.get("process_cpu_train_seconds", 0) for row in history),
+        total_process_cpu_training_seconds=(
+            sum(row["process_cpu_train_seconds"] for row in history)
+            if all("process_cpu_train_seconds" in row for row in history)
+            else None
+        ),
+        process_cpu_history_complete=all("process_cpu_train_seconds" in row for row in history),
         timing_note="Training loop only; wall and process CPU seconds are distinct; excludes validation/checkpoint/plots",
         sampled_peak_training_ram_mb=max((r["sampled_peak_training_ram_mb"] for r in history), default=None),
         checkpoint_paths={n: str((output_dir / f"{n}.pt").resolve()) for n in ("best", "last")},

@@ -46,7 +46,16 @@ def profile_isolated(config):
     )
     import csv
 
-    flat = [dict(name=r["name"], **r["metrics"]) for r in results]
+    flat = [
+        dict(
+            name=r["name"],
+            experiment_id=r["experiment_id"],
+            timestamp_utc=r["timestamp_utc"],
+            process_id=r["process_id"],
+            **r["metrics"],
+        )
+        for r in results
+    ]
     fields = list(dict.fromkeys(k for r in flat for k in r))
     with (root / "profile.csv").open("w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fields)
@@ -66,11 +75,14 @@ def profile_isolated(config):
 
 def worker(config, output):
     import os
+    import uuid
+    from datetime import datetime, timezone
 
     import torch
 
     from guminet.benchmark import GumiBenchmark
     from guminet.models import create_model, model_architecture_summary
+    from guminet.research.tracking import source_identity
     from guminet.utils import seed_everything
 
     torch.set_num_threads(config.get("threads", 2))
@@ -96,6 +108,11 @@ def worker(config, output):
     save_json(
         output,
         dict(
+            experiment_id=uuid.uuid4().hex,
+            timestamp_utc=datetime.now(timezone.utc).isoformat(),
+            source=source_identity(),
+            config=config,
+            data_source="Random synthetic tensors; no classification dataset or test-set selection",
             name=config["name"],
             model_config=model.model_config,
             process_id=os.getpid(),
