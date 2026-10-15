@@ -10,7 +10,7 @@ from pathlib import Path
 import torch
 from torch import nn
 
-from guminet.models import count_parameters, create_model
+from guminet.models import MODEL_REGISTRY, count_parameters, create_model
 from guminet.utils import MemoryMonitor, resolve_device, resource_metrics, save_json
 
 
@@ -184,7 +184,7 @@ class SimpleCNN(nn.Module):
 
 
 def _create_comparison_model(name, num_classes, pretrained=False):
-    if name.startswith("guminet"):
+    if name in MODEL_REGISTRY:
         return create_model(name, num_classes, pretrained)
     if name == "simple_cnn":
         if pretrained:
@@ -214,7 +214,7 @@ def _create_comparison_model(name, num_classes, pretrained=False):
 
 def create_comparison_model(name, num_classes, pretrained=False):
     model = _create_comparison_model(name, num_classes, pretrained)
-    if not name.startswith("guminet"):
+    if name not in MODEL_REGISTRY:
         model.architecture = "comparison"
         model.model_config = dict(name=name, num_classes=num_classes)
     return model

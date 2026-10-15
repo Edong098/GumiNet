@@ -1,0 +1,21 @@
+dataset: dataset
+dataset_name: Intel three-class subset (supply your original split)
+device: cpu
+threads: 2
+input_size: 128
+batch_size: 4
+accumulation_steps: 2
+optimizer: adamw
+lr: 0.001
+scheduler: cosine
+epochs: 1000
+patience: 0
+num_workers: 0
+seeds:
+- 42
+- 123
+- 2026
+group: v2
+training_time_budget_seconds: 100
+training_time_budget_metric: wall
+output_dir: runs/research/v2_equal_wall_budget

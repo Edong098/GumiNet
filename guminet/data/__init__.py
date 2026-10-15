@@ -104,6 +104,7 @@ def make_loaders(
     std=STD,
     leakage_check=True,
     include_test=True,
+    augmentation=True,
 ):
     root = Path(root)
     datasets = {}
@@ -112,7 +113,7 @@ def make_loaders(
             continue
         datasets[split] = FolderDataset(
             root / split,
-            ImageTransform(input_size, split == "train", mean, std),
+            ImageTransform(input_size, split == "train" and augmentation, mean, std),
             datasets["train"].class_to_idx if datasets else None,
         )
     if leakage_check:

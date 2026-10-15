@@ -86,6 +86,7 @@ class GumiTrainer:
         self.output_dir = Path(c["output_dir"])
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.history, self.start_epoch, self.best_metric, self.bad_epochs = [], 0, -1.0, 0
+        self.experiment = None
 
     def _payload(self, epoch, train_loader):
         return dict(
@@ -114,6 +115,7 @@ class GumiTrainer:
             ],
             cuda_rng=torch.cuda.get_rng_state_all() if self.device.type == "cuda" else [],
             loader_rng=train_loader.generator.get_state() if train_loader.generator else None,
+            experiment=self.experiment,
         )
 
     def resume(self, path):
@@ -131,6 +133,8 @@ class GumiTrainer:
         self.start_epoch = ckpt["epoch"] + 1
         self.best_metric, self.bad_epochs = ckpt["best_metric"], ckpt["bad_epochs"]
         self.history = ckpt["history"]
+        self.experiment = ckpt.get("experiment")
+        self._resume_path = str(path)
         torch.set_rng_state(ckpt["torch_rng"])
         random.setstate(ckpt["python_rng"])
         state = ckpt["numpy_rng"]
@@ -157,9 +161,36 @@ class GumiTrainer:
         if getattr(self, "_loader_rng", None) is not None and train_loader.generator:
             train_loader.generator.set_state(self._loader_rng)
         c = self.config
+        from guminet.research.tracking import create_experiment, save_run_report, source_identity
+
+        current = create_experiment(self.model, c, train_loader, val_loader)
+        if self.experiment is None:
+            self.experiment = current
+            if getattr(self, "_resume_path", None):
+                self.experiment["legacy_resume_checkpoint"] = self._resume_path
+        else:
+            # A known split mismatch is never silently accepted on resume.
+            for split in ("train", "val"):
+                before = self.experiment["splits"][split]["sha256"]
+                after = current["splits"][split]["sha256"]
+                if before is not None and after != before:
+                    raise ValueError(f"Resume dataset manifest mismatch: {split}")
+            self.experiment.setdefault("resume_events", []).append(
+                dict(timestamp_utc=current["timestamp_utc"], source=source_identity(), config=c)
+            )
+        save_json(self.output_dir / "experiment.json", self.experiment)
+        stop_reason = "epoch_limit"
+        time_budget = c.get("training_time_budget_seconds")
+        if time_budget is not None and time_budget <= 0:
+            raise ValueError("training_time_budget_seconds must be positive")
+        budget_metric = c.get("training_time_budget_metric", "wall")
+        if budget_metric not in ("wall", "process_cpu"):
+            raise ValueError("training_time_budget_metric must be wall or process_cpu")
+        budget_field = "train_seconds" if budget_metric == "wall" else "process_cpu_train_seconds"
         class_names = sorted(self.class_to_idx, key=self.class_to_idx.get)
         for epoch in range(self.start_epoch, c["epochs"]):
             started = time.perf_counter()
+            cpu_started = time.process_time()
             if self.device.type == "cuda":
                 torch.cuda.reset_peak_memory_stats(self.device)
             self.model.train()
@@ -198,6 +229,7 @@ class GumiTrainer:
                     count += len(y)
                     progress.set_postfix(loss=loss.item() / len(y), accuracy=correct / count)
             train_seconds = time.perf_counter() - started
+            cpu_train_seconds = time.process_time() - cpu_started
             val = evaluate(self.model, val_loader, self.device, class_names)
             lr = self.optimizer.param_groups[0]["lr"]
             if self.scheduler:
@@ -217,6 +249,7 @@ class GumiTrainer:
                 learning_rate=lr,
                 epoch_seconds=time.perf_counter() - started,
                 train_seconds=train_seconds,
+                process_cpu_train_seconds=cpu_train_seconds,
                 images_per_second=count / train_seconds,
                 sampled_peak_training_ram_mb=memory.peak_mb,
                 **resource_metrics(self.device),
@@ -238,12 +271,19 @@ class GumiTrainer:
                     f"{row['images_per_second']:.1f} images/s, RAM={row['ram_mb']:.1f} MB, "
                     f"VRAM peak={row['cuda_peak_mb']:.1f} MB, epoch={row['epoch_seconds']:.2f}s"
                 )
+            save_run_report(self.output_dir, self.experiment, self.history, self.best_metric, stop_reason)
             if epoch_callback:
                 epoch_callback(epoch, row)
+            # Equal CPU wall-time budgets are checked at epoch boundaries; disclose overshoot.
+            if time_budget is not None and sum(h.get(budget_field, 0) for h in self.history) >= time_budget:
+                stop_reason = f"training_{budget_metric}_time_budget_epoch_boundary"
+                break
             if c["patience"] and self.bad_epochs >= c["patience"]:
+                stop_reason = "early_stopping"
                 break
         if self.history:
             plot_history(self.history, self.output_dir)
+        save_run_report(self.output_dir, self.experiment, self.history, self.best_metric, stop_reason)
         return self.history
 
 

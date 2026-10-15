@@ -8,7 +8,20 @@ import yaml
 
 @pytest.mark.parametrize(
     "command",
-    ["info", "models", "train", "evaluate", "tune", "benchmark", "predict", "export", "ablate", "compare"],
+    [
+        "info",
+        "models",
+        "train",
+        "evaluate",
+        "tune",
+        "benchmark",
+        "predict",
+        "export",
+        "ablate",
+        "compare",
+        "profile",
+        "architecture",
+    ],
 )
 def test_help(command):
     result = subprocess.run([sys.executable, "-m", "guminet.cli", command, "--help"], capture_output=True)

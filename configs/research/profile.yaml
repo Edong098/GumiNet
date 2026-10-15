@@ -1,0 +1,13 @@
+input_size: 128
+num_classes: 3
+batch_size: 1
+threads: 2
+warmup: 3
+repeats: 20
+train_steps: 5
+output_dir: runs/research/profile
+models:
+- name: guminet_nano
+- name: guminet_tiny
+- name: v2_refined_d1_w075
+- name: v2_candidate_stage3

@@ -1,0 +1,5 @@
+model: v2_candidate_stage3
+num_classes: 3
+input_size: 128
+threads: 2
+include_gradients: true

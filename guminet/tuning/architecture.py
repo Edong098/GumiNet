@@ -13,7 +13,7 @@ from guminet.models import create_model
 from guminet.utils import save_json, seed_everything
 
 
-def ablation_configs():
+def _legacy_ablation_configs():
     base = dict(
         model="guminet_v2_plain",
         model_kwargs=dict(depth=2, width=1.0, expansion=1.0, residual=False),
@@ -37,45 +37,73 @@ def ablation_configs():
     return result
 
 
+def ablation_configs(group="legacy"):
+    if group == "legacy":
+        return _legacy_ablation_configs()
+    from guminet.research.presets import experiment_presets
+
+    return experiment_presets(group)
+
+
 def run_ablations(config):
     root = Path(config.get("output_dir", "runs/ablations"))
     root.mkdir(parents=True, exist_ok=True)
     rows = []
-    for name, variant in ablation_configs().items():
-        c = dict(config) | variant | dict(output_dir=str(root / name))
-        seed_everything(c.get("seed", 42))
-        loaders = make_loaders(
-            c["dataset"],
-            c["input_size"],
-            c.get("batch_size", 4),
-            seed=c.get("seed", 42),
-            include_test=False,
-            **{k: c[k] for k in ("mean", "std") if k in c},
-        )
-        mapping = loaders["train"].dataset.class_to_idx
-        model = create_model(c["model"], len(mapping), **c["model_kwargs"])
-        trainer = GumiTrainer(model, c, mapping)
-        history = trainer.fit(loaders["train"], loaders["val"])
-        best, _ = model_from_checkpoint(root / name / "best.pt")
-        val = evaluate(best, loaders["val"], "cpu")
-        bench = GumiBenchmark(best).run(
-            c["input_size"],
-            warmup=1,
-            repeats=c.get("repeats", 5),
-            train_steps=2,
-            checkpoint=root / name / "best.pt",
-        )
-        row = dict(
-            name=name,
-            accuracy=val["accuracy"],
-            macro_f1=val["macro_f1"],
-            **bench,
-            training_images_per_second=history[-1]["images_per_second"],
-            dataset_sampled_peak_training_ram_mb=history[-1]["sampled_peak_training_ram_mb"],
-            epoch_seconds=history[-1]["epoch_seconds"],
-        )
-        rows.append(row)
-        save_json(root / "ablations.json", dict(experiments=ablation_configs(), results=rows))
+    variants = config.get("experiments") or ablation_configs(config.get("group", "legacy"))
+    if not isinstance(variants, dict) or not variants:
+        raise ValueError("experiments must be a nonempty mapping")
+    seeds = config.get("seeds", [config.get("seed", 42)])
+    for name, variant in variants.items():
+        for seed in seeds:
+            c = (
+                dict(config)
+                | variant
+                | variant.get("training_overrides", {})
+                | dict(
+                    seed=seed,
+                    output_dir=str(root / name / f"seed_{seed}")
+                    if ("seeds" in config or config.get("group", "legacy") != "legacy")
+                    else str(root / name),
+                )
+            )
+            if (Path(c["output_dir"]) / "last.pt").exists():
+                raise FileExistsError(f"Run already exists: {c['output_dir']}; choose a new output_dir")
+            seed_everything(c.get("seed", 42))
+            loaders = make_loaders(
+                c["dataset"],
+                c["input_size"],
+                c.get("batch_size", 4),
+                seed=c.get("seed", 42),
+                include_test=False,
+                augmentation=c.get("augmentation", True),
+                **{k: c[k] for k in ("mean", "std") if k in c},
+            )
+            mapping = loaders["train"].dataset.class_to_idx
+            model = create_model(c["model"], len(mapping), **c["model_kwargs"])
+            trainer = GumiTrainer(model, c, mapping)
+            history = trainer.fit(loaders["train"], loaders["val"])
+            best, _ = model_from_checkpoint(Path(c["output_dir"]) / "best.pt")
+            val = evaluate(best, loaders["val"], "cpu")
+            bench = GumiBenchmark(best).run(
+                c["input_size"],
+                warmup=1,
+                repeats=c.get("repeats", 5),
+                train_steps=2,
+                checkpoint=Path(c["output_dir"]) / "best.pt",
+            )
+            row = dict(
+                name=name,
+                control=variant.get("control", "baseline"),
+                seed=seed,
+                accuracy=val["accuracy"],
+                macro_f1=val["macro_f1"],
+                **bench,
+                training_images_per_second=history[-1]["images_per_second"],
+                dataset_sampled_peak_training_ram_mb=history[-1]["sampled_peak_training_ram_mb"],
+                epoch_seconds=history[-1]["epoch_seconds"],
+            )
+            rows.append(row)
+            save_json(root / "ablations.json", dict(experiments=variants, results=rows))
     with (root / "ablations.csv").open("w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0]))
         writer.writeheader()

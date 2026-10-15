@@ -18,7 +18,17 @@ def main(argv=None):
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("info", help="Show runtime and package versions")
     sub.add_parser("models", help="List models with measured parameter counts (3 classes)")
-    for name in ("train", "evaluate", "tune", "benchmark", "export", "ablate", "compare"):
+    for name in (
+        "train",
+        "evaluate",
+        "tune",
+        "benchmark",
+        "export",
+        "ablate",
+        "compare",
+        "profile",
+        "architecture",
+    ):
         p = sub.add_parser(name, help=f"Run {name} using YAML configuration")
         p.add_argument("--config", required=True, help="Path to YAML configuration")
     p = sub.add_parser("predict", help="Classify an image from a trained checkpoint")
@@ -55,7 +65,8 @@ def main(argv=None):
                 merged["batch_size"],
                 merged["num_workers"],
                 c.get("seed", 42),
-                **{k: c[k] for k in ("mean", "std") if k in c},
+                include_test=False,
+                **{k: c[k] for k in ("mean", "std", "augmentation") if k in c},
             )
             mapping = loaders["train"].dataset.class_to_idx
             groups = None
@@ -111,6 +122,10 @@ def main(argv=None):
                     c.get("model", "guminet_tiny"), c.get("num_classes", 3), c.get("pretrained", False)
                 )
             )
+            if c.get("model_kwargs") and not c.get("checkpoint"):
+                model = create_model(
+                    c.get("model", "guminet_tiny"), c.get("num_classes", 3), **c["model_kwargs"]
+                )
             result = GumiBenchmark(model, c.get("device", "cpu")).run(
                 **{
                     k: c[k]
@@ -127,6 +142,21 @@ def main(argv=None):
                 }
             )
             result["pretrained"] = c.get("pretrained", False)
+        elif args.command == "profile":
+            from guminet.benchmark.isolated import profile_isolated
+
+            result = profile_isolated(c)
+        elif args.command == "architecture":
+            from guminet.models import model_architecture_summary
+
+            model = create_model(
+                c.get("model", "guminet_tiny"), c.get("num_classes", 3), **c.get("model_kwargs", {})
+            )
+            result = model_architecture_summary(
+                model,
+                input_size=c.get("input_size", 128),
+                include_gradients=c.get("include_gradients", False),
+            )
         elif args.command == "compare":
             from guminet.benchmark.comparison import run_comparisons
 
