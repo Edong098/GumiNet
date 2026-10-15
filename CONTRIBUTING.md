@@ -11,5 +11,5 @@ hasil pengukuran dengan protokol jelas. Jangan menambahkan benchmark/accuracy fi
 pretrained weights palsu, dataset besar, checkpoint, virtual environment, atau secrets.
 Hasil penelitian perlu seed/split/hardware dan pembeda pretrained/from-scratch.
 
-Gunakan Git dan VS Code biasa; Codex tidak diperlukan. Tidak ada push/publish otomatis.
+Gunakan Git dan VS Code biasa; Tidak ada push/publish otomatis.
 Lisensi MIT yang sudah ada tetap dipertahankan.
