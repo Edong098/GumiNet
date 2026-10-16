@@ -2,10 +2,23 @@
 
 **Experimental Research Architecture · PyTorch · CPU-first · MIT**
 
-GumiNet adalah keluarga CNN ringan untuk meneliti keseimbangan kemampuan klasifikasi,
-biaya training, memori aktivasi, dan latency inference pada perangkat terbatas.
-Nama *Gumi* terinspirasi bahasa Sasak, Lombok, yang berkaitan dengan bumi atau tanah:
-teknologi yang membumi, sederhana, dan dapat digunakan tanpa komputer mahal.
+## Latar belakang
+
+GumiNet dikembangkan sebagai arsitektur Convolutional Neural Network (CNN) ringan untuk mempelajari keseimbangan antara kemampuan klasifikasi citra, waktu komputasi, dan penggunaan memori pada perangkat dengan sumber daya terbatas, terutama komputer berbasis CPU tanpa GPU khusus. Nama **GumiNet** berasal dari kata **“Gumi”** dalam bahasa Sasak, Lombok, yang berkaitan dengan bumi atau tanah, serta **“Net”** yang merupakan singkatan dari **Network** atau jaringan. Nama tersebut mencerminkan semangat pengembangan jaringan saraf yang membumi, sederhana, dan dapat diakses dengan perangkat komputasi yang lebih terjangkau.
+
+## Tujuan pengembangan
+
+Secara umum, GumiNet bertujuan mengembangkan dan mengevaluasi keluarga CNN ringan untuk klasifikasi citra dengan mempertimbangkan keseimbangan antara kemampuan klasifikasi dan biaya komputasi pada perangkat dengan sumber daya terbatas.
+
+Secara khusus, pengembangan GumiNet bertujuan untuk:
+
+1. Menyediakan baseline CNN yang dapat dilatih dan digunakan untuk inferensi pada CPU, dengan GPU sebagai akselerator opsional.
+2. Menguji pengaruh kedalaman, lebar kanal, ukuran kernel, posisi downsampling, aktivasi, dan residual connection melalui eksperimen terkontrol.
+3. Mengukur accuracy, macro F1, jumlah parameter, estimasi MACs, penggunaan RAM, waktu pelatihan, dan latency inferensi.
+4. Menyediakan pipeline pelatihan, evaluasi, checkpoint, dan pencatatan eksperimen yang dapat direproduksi.
+5. Mengidentifikasi konfigurasi yang sesuai untuk perangkat sasaran berdasarkan hasil pengukuran, serta mengevaluasi keterbatasan dan generalisasinya pada dataset lain.
+
+## Status penelitian
 
 GPU merupakan akselerator opsional. Tidak ada jaminan setiap konfigurasi cocok untuk
 laptop RAM 4 GB. Belum tersedia pretrained weights resmi. Kini tersedia hasil Intel/Colab
